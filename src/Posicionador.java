@@ -12,7 +12,6 @@ public class Posicionador {
         while(this.sheet.getRow(r).getCell(c).toString().isBlank()) {
             r++;
         }
-        //System.out.println("Siguiente fila: " + r);
         return r;
     }
 
@@ -22,7 +21,6 @@ public class Posicionador {
         while(this.sheet.getRow(r).getCell(c).toString().isBlank()) {
             c++;
         }
-        //System.out.println("Siguiente columna: " + c);
         return c;
     }
 }

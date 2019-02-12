@@ -34,7 +34,7 @@ public class Buscador {
         ArrayList<ArrayList<String>> horario = new ArrayList<>();
 
         //Buscar en la hoja
-        Coordenada posHorario = new Buscador(sheet).buscar("tramo horario", 15);
+        Coordenada posHorario = this.buscar("tramo horario", 15);
 
         //Posicionar el cursor
         Posicionador posicionador = new Posicionador(sheet);

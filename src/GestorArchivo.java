@@ -23,7 +23,7 @@ public class GestorArchivo {
     private void generarArchivo() {
         File file = new File(this.path);
 
-        if(file.exists()) {
+        if (file.exists()) {
             this.file = file;
             System.out.println("Archivo generado.");
         } else {
