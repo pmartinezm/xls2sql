@@ -20,6 +20,9 @@ public class GestorArchivo {
         this.generarArchivo();
     }
 
+    /**
+     * Si el archivo existe lo asigna a la propiedad.
+     */
     private void generarArchivo() {
         File file = new File(this.path);
 
@@ -32,9 +35,15 @@ public class GestorArchivo {
         }
     }
 
+    /**
+     * Obtiene el libro del archivo xls.
+     * @return el libro de trabajo.
+     * @throws IOException
+     */
     public XSSFWorkbook getLibro() throws IOException {
         FileInputStream fis = new FileInputStream(this.file);
         XSSFWorkbook wb = new XSSFWorkbook(fis);
+        fis.close();
         return wb;
     }
 }

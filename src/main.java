@@ -24,5 +24,7 @@ public class main {
                 horario) {
             System.out.println(dia.size());
         }
+
+        libro.close();
     }
 }

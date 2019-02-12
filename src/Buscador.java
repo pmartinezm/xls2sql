@@ -13,6 +13,13 @@ public class Buscador {
         this.sheet = sheet;
     }
 
+    /**
+     * Busca el texto dentro de un rango.
+     *
+     * @param texto el texto a buscar.
+     * @param rango el rango en el que se va a buscar.
+     * @return las coordenadas de la coincidencia, null si no se ha encontrado.
+     */
     public Coordenada buscar(String texto, int rango) {
         for (int c = 0; c < rango; c++) {
             for (int r = 0; r < rango; r++) {
@@ -30,6 +37,11 @@ public class Buscador {
         return null;
     }
 
+    /**
+     * Extrae un horario del xls.
+     *
+     * @return matriz con el horario por días.
+     */
     public ArrayList<ArrayList<String>> extraerHorario() {
         ArrayList<ArrayList<String>> horario = new ArrayList<>();
 

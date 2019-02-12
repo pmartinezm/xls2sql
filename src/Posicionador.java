@@ -7,18 +7,31 @@ public class Posicionador {
         this.sheet = sheet;
     }
 
-    public int getSiguienteFila(int r, int c){
+    /**
+     * Obtiene la siguiente fila no vacía según la posición actual.
+     *
+     * @param r fila actual.
+     * @param c columna actual.
+     * @return la siguiente fila.
+     */
+    public int getSiguienteFila(int r, int c) {
         r++;
-        while(this.sheet.getRow(r).getCell(c).toString().isBlank()) {
+        while (this.sheet.getRow(r).getCell(c).toString().isBlank()) {
             r++;
         }
         return r;
     }
 
-
+    /**
+     * Obtiene la siguiente columna no vacía según la posición actual.
+     *
+     * @param r fila actual.
+     * @param c columna actual.
+     * @return posición de la columna.
+     */
     public int getSiguienteColumna(int r, int c) {
         c++;
-        while(this.sheet.getRow(r).getCell(c).toString().isBlank()) {
+        while (this.sheet.getRow(r).getCell(c).toString().isBlank()) {
             c++;
         }
         return c;
