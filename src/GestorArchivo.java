@@ -1,14 +1,13 @@
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 public class GestorArchivo {
     private String path;
     private File file;
+    private String[] extensions = {"xls", "xlsx"};
 
     public GestorArchivo(String path) {
             this.path = path;
@@ -20,6 +19,7 @@ public class GestorArchivo {
         this.generarArchivo();
     }
 
+
     /**
      * Si el archivo existe lo asigna a la propiedad.
      */
@@ -27,8 +27,15 @@ public class GestorArchivo {
         File file = new File(this.path);
 
         if (file.exists()) {
-            this.file = file;
-            System.out.println("Archivo generado.");
+            if(file.isDirectory()){
+                System.out.println("Path es directorio.");
+                File directorio = new File(this.path);
+                File[] archivos = directorio.listFiles();
+            } else {
+                System.out.println("Path es archivo.");
+                this.file = file;
+                System.out.println("Archivo generado.");
+            }
         } else {
             this.file = null;
             System.err.println("El archivo no existe.");
