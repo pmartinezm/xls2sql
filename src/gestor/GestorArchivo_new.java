@@ -1,3 +1,5 @@
+package gestor;
+
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
@@ -13,15 +15,13 @@ public class GestorArchivo_new {
     public GestorArchivo_new(String path) {
         this.path = path;
         this.generarArchivos();
+        System.out.println(this.archivos.size());
     }
 
     public GestorArchivo_new() {
         this.path = "/home/pablo/Escritorio/Copia_de_Horario_de_clase_por_grupos.xls";
         this.generarArchivos();
-    }
-
-    public static void main(String[] args) {
-        new GestorArchivo_new("/home/pablo/Escritorio/");
+        System.out.println(this.archivos.size());
     }
 
 
@@ -38,6 +38,7 @@ public class GestorArchivo_new {
                 for (File archivo : archivos) {
                     if (!(archivo.isDirectory()) && this.filtrarExtension(archivo.getName())) {
                         this.archivos.add(archivo);
+                        System.out.println(archivo.getName());
                     }
                 }
             } else {
@@ -82,5 +83,11 @@ public class GestorArchivo_new {
         }
         fis.close();
         return libros;
+    }
+
+    public static void main(String[] args) throws IOException {
+        GestorArchivo_new gestor = new GestorArchivo_new("/home/pablo/Escritorio");
+        ArrayList<XSSFWorkbook> libros = gestor.getLibros();
+        System.out.println(libros);
     }
 }

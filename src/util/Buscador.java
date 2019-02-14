@@ -1,9 +1,10 @@
+package util;
+
+import modelo.Coordenada;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Buscador {

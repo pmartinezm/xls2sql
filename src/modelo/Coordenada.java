@@ -1,3 +1,5 @@
+package modelo;
+
 public class Coordenada {
     public int r, c;
 
