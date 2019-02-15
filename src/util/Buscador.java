@@ -24,6 +24,7 @@ public class Buscador {
     public Coordenada buscar(String texto, int rango) {
         for (int c = 0; c < rango; c++) {
             for (int r = 0; r < rango; r++) {
+                System.out.println(r + " - " + c);
                 Row fila = this.sheet.getRow(r);
                 Cell celda = fila.getCell(c);
                 String valor = celda.toString();
@@ -68,5 +69,11 @@ public class Buscador {
         }
 
         return horario;
+    }
+
+    public Coordenada buscarHorarioGrupo() {
+        Coordenada coordenada = this.buscar("rerererere", 50);
+        return coordenada;
+
     }
 }

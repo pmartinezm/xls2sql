@@ -1,5 +1,7 @@
 package util;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class Posicionador {
@@ -17,11 +19,23 @@ public class Posicionador {
      * @return la siguiente fila.
      */
     public int getSiguienteFila(int r, int c) {
+        int max = this.sheet.getLastRowNum();
+        System.out.println("Max: " + max);
         r++;
-        while (this.sheet.getRow(r).getCell(c).toString().isBlank()) {
-            r++;
+        while (r <= max) {
+            Row row = this.sheet.getRow(r);
+            if (row == null) {
+                r++;
+            } else {
+                Cell cell = row.getCell(c);
+                if (cell != null) {
+                    return r;
+                } else {
+                    r++;
+                }
+            }
         }
-        return r;
+        return -1;
     }
 
     /**
@@ -32,10 +46,17 @@ public class Posicionador {
      * @return posición de la columna.
      */
     public int getSiguienteColumna(int r, int c) {
+        Row row = this.sheet.getRow(r);
+        int max = row.getLastCellNum();
         c++;
-        while (this.sheet.getRow(r).getCell(c).toString().isBlank()) {
-            c++;
+        while (c <= max) {
+            Cell cell = row.getCell(c);
+            if(cell == null) {
+                c++;
+            } else {
+                return c;
+            }
         }
-        return c;
+        return -1;
     }
 }
