@@ -20,15 +20,6 @@ public class main {
         //System.out.println(libro.getNumberOfSheets());
 
         //Ver el horario
-        Buscador buscador = new Buscador(sheet);
-        //buscador.buscar("uno", 10);
-        //buscador.buscar("dos", 10);
-        //buscador.buscar("tres", 10);
-//        Posicionador pos = new Posicionador(sheet);
-//        int c = pos.getSiguienteColumna(2, 1);
-//        Row row = sheet.getRow(2);
-//        Cell cell = row.getCell(c);
-//        System.out.println(cell);
 
         Posicionador pos = new Posicionador(sheet);
 
