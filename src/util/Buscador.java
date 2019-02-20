@@ -24,14 +24,20 @@ public class Buscador {
     public Coordenada buscar(String texto, int rango) {
         for (int c = 0; c < rango; c++) {
             for (int r = 0; r < rango; r++) {
-                System.out.println(r + " - " + c);
+                System.out.print(r + " - " + c);
                 Row fila = this.sheet.getRow(r);
-                Cell celda = fila.getCell(c);
-                String valor = celda.toString();
+                if (fila != null) {
+                    Cell celda = fila.getCell(c);
+                    if (celda != null) {
+                        String valor = celda.toString();
 
-                if (valor.equalsIgnoreCase(texto)) {
-                    System.out.println("Encontrado en " + r + ":" + c);
-                    return new Coordenada(r, c);
+                        System.out.println(" " + valor);
+
+                        if (valor.equalsIgnoreCase(texto)) {
+                            System.out.println("Encontrado en " + r + ":" + c);
+                            return new Coordenada(r, c);
+                        }
+                    }
                 }
             }
         }

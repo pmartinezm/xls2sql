@@ -12,19 +12,13 @@ import java.util.ArrayList;
 public class main {
 
     public static void main(String[] args) throws IOException {
-        GestorArchivo gestor = new GestorArchivo("/home/pablo/Escritorio/archivoe.xlsx");
+        GestorArchivo gestor = new GestorArchivo("/home/pablo/Escritorio/Todos los horarios.xlsx");
         XSSFWorkbook libro = gestor.getLibro();
 
-        //Obtener la primera hoja
         XSSFSheet sheet = libro.getSheetAt(0);
-        //System.out.println(libro.getNumberOfSheets());
 
-        //Ver el horario
-
-        Posicionador pos = new Posicionador(sheet);
-
-        System.out.println(pos.getSiguienteColumna(5, 0));
-        //System.out.println(sheet.getRow(5).getCell(2));
+        Buscador b = new Buscador(sheet);
+        b.buscar("tramo horario", 15);
 
         libro.close();
     }
