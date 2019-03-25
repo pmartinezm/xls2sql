@@ -5,18 +5,23 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import util.Buscador;
 import util.Debug;
+import util.GeneradorSQL;
 import util.Posicionador;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class main {
 
     public static void main(String[] args) throws IOException {
         Debug debug = Debug.getDebug();
+        debug.disable();
         GestorArchivo_new gestor = new GestorArchivo_new();
         XSSFWorkbook libro = gestor.getLibros().get(0);
 
         int sheets = libro.getNumberOfSheets();
+
+        ArrayList<String> a = new ArrayList<>();
         for (int i = 0; i < sheets; i++) {
             XSSFSheet sheet = libro.getSheetAt(i);
             debug.write(sheet.getSheetName());
@@ -31,8 +36,12 @@ public class main {
                 XSSFCell cell = sheet.getRow(coordenada.r).getCell(col);
                 debug.write("Coordenada: " + coordenada);
                 debug.write("Col: " + col);
+                debug.write(coordenada.r + "-" + col);
                 debug.write(cell.toString());
+                a.add(cell.toString());
             }
         }
+
+        debug.writeIgnoreAnon(GeneradorSQL.insertarCurso(a));
     }
 }

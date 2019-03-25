@@ -46,14 +46,12 @@ public class Posicionador {
      * @return posición de la columna.
      */
     public int getSiguienteColumna(int r, int c) {
-        this.debug.title("POSICIONADOR, getSigCol");
         Row row = this.sheet.getRow(r);
         int max = row.getLastCellNum();
-        this.debug.write("Max: " + max);
         c++;
         while (c <= max) {
             Cell cell = row.getCell(c);
-            if(cell == null) {
+            if(cell == null || cell.toString().length() == 0) {
                 c++;
             } else {
                 return c;

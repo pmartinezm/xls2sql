@@ -14,7 +14,7 @@ public class Debug {
         this.consoleError("[Error] " + msg);
     }
 
-    public void title(String msg) {
+    public void title(Object msg) {
         this.consoleLog("[Debug] -- " + msg + " --");
     }
 
@@ -22,23 +22,31 @@ public class Debug {
         this.consoleLog("");
     }
 
-    private void consoleLog(String msg) {
+    public void writeIgnore(Object msg) {
+        System.out.println("[Debug[I]] " + msg);
+    }
+
+    public void writeIgnoreAnon(Object msg) {
+        System.out.println(msg);
+    }
+
+    private void consoleLog(Object msg) {
         if (this.isEnabed()) {
             System.out.println(msg);
         }
     }
 
-    private void consoleError(String msg) {
+    private void consoleError(Object msg) {
         if (this.isEnabed()) {
             System.err.println(msg);
         }
     }
 
     public static Debug getDebug() {
-        if (debug != null) {
-            return debug;
+        if (debug == null) {
+            debug = new Debug();
         }
-        return new Debug();
+        return debug;
     }
 
     public void enable() {
