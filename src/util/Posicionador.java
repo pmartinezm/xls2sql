@@ -20,7 +20,6 @@ public class Posicionador {
      */
     public int getSiguienteFila(int r, int c) {
         int max = this.sheet.getLastRowNum();
-        System.out.println("Max: " + max);
         r++;
         while (r <= max) {
             Row row = this.sheet.getRow(r);

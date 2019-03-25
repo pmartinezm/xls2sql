@@ -1,4 +1,5 @@
 import gestor.GestorArchivo;
+import modelo.Horario;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -18,7 +19,22 @@ public class main {
         XSSFSheet sheet = libro.getSheetAt(0);
 
         Buscador b = new Buscador(sheet);
-        b.buscar("tramo horario", 15);
+
+        Horario horario = b.extraerHorario();
+
+
+
+//        ArrayList<ArrayList<String>> horario = b.extraerHorario();
+//
+//        System.out.println("Dias:");
+//        for (ArrayList<String> dia :
+//                horario) {
+//            for (String hora :
+//                    dia) {
+//                System.out.print(hora + "-");
+//            }
+//            System.out.println();
+//        }
 
         libro.close();
     }
@@ -33,12 +49,13 @@ public class main {
 
         //Ver el horario
         Buscador buscador = new Buscador(sheet);
-        ArrayList<ArrayList<String>> horario = buscador.extraerHorario();
-        for (ArrayList<String> dia :
-                horario) {
-            System.out.println(dia);
-            System.out.println(dia.size());
-        }
+//        ArrayList<ArrayList<String>> horario = buscador.extraerHorario();
+//
+//        for (ArrayList<String> dia :
+//                horario) {
+//            System.out.println(dia);
+//            System.out.println(dia.size());
+//        }
 
         System.out.println(buscador.buscarHorarioGrupo());
 

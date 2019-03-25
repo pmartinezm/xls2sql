@@ -1,6 +1,7 @@
 package util;
 
 import modelo.Coordenada;
+import modelo.Horario;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -24,17 +25,14 @@ public class Buscador {
     public Coordenada buscar(String texto, int rango) {
         for (int c = 0; c < rango; c++) {
             for (int r = 0; r < rango; r++) {
-                System.out.print(r + " - " + c);
                 Row fila = this.sheet.getRow(r);
                 if (fila != null) {
                     Cell celda = fila.getCell(c);
                     if (celda != null) {
                         String valor = celda.toString();
 
-                        System.out.println(" " + valor);
-
                         if (valor.equalsIgnoreCase(texto)) {
-                            System.out.println("Encontrado en " + r + ":" + c);
+                            System.out.println("Encontrado en " + r + "-" + c);
                             return new Coordenada(r, c);
                         }
                     }
@@ -45,22 +43,51 @@ public class Buscador {
         return null;
     }
 
+    public Horario extraerHorario() {
+        Horario horario = new Horario();
+
+        Coordenada posicionHorario = this.buscar("Tramo horario", 10);
+        System.out.println("Inicio de horario encontrado en " + posicionHorario.toString());
+
+        Posicionador posi = new Posicionador(this.sheet);
+
+        int r = posicionHorario.r;
+        int c = posicionHorario.c;
+
+        for (int col = 0; col < 5; col++) {
+            c = posicionHorario.c;
+            c = posi.getSiguienteColumna(r, c);
+
+            System.out.println(r + "-" + c);
+
+            for (int fil = 0; fil < 6; fil++) {
+                r = posi.getSiguienteFila(r, c);
+
+                String valor = this.sheet.getRow(r).getCell(c).toString();
+                System.out.print(valor + " ");
+            }
+            System.out.println();
+        }
+
+        return horario;
+    }
+
     /**
      * Extrae un horario del xls.
      *
      * @return matriz con el horario por días.
      */
-    public ArrayList<ArrayList<String>> extraerHorario() {
+    public ArrayList<ArrayList<String>> extraerHorario2() {
         ArrayList<ArrayList<String>> horario = new ArrayList<>();
 
         //Buscar en la hoja
-        Coordenada posHorario = this.buscar("tramo horario", 15);
+        Coordenada posHorario = this.buscar("Tramo horario", 15);
 
         //Posicionar el cursor
         Posicionador posicionador = new Posicionador(sheet);
 
         Coordenada actual = new Coordenada(posHorario.r, posHorario.c);
-        int FILAS = 6, COLUMNAS = 5;
+        int FILAS = 5, COLUMNAS = 6;
         for (int c = 0; c < COLUMNAS; c++) {
             ArrayList<String> dia = new ArrayList<>();
             actual.c = posicionador.getSiguienteColumna(actual.r, actual.c);
@@ -78,7 +105,7 @@ public class Buscador {
     }
 
     public Coordenada buscarHorarioGrupo() {
-        Coordenada coordenada = this.buscar("rerererere", 50);
+        Coordenada coordenada = this.buscar("Tramo horario", 50);
         return coordenada;
 
     }
