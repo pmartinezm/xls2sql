@@ -1,6 +1,7 @@
 package gestor;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import util.Debug;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,17 +12,18 @@ public class GestorArchivo_new {
     private String path;
     private ArrayList<File> archivos = new ArrayList<>();
     private String[] extensiones = {"xls", "xlsx"};
+    private Debug debug = Debug.getDebug();
 
     public GestorArchivo_new(String path) {
         this.path = path;
         this.generarArchivos();
-        System.out.println(this.archivos.size());
+        this.debug.write(this.archivos.size());
     }
 
     public GestorArchivo_new() {
-        this.path = "/home/pablo/Escritorio/Copia_de_Horario_de_clase_por_grupos.xls";
+        this.path = "/home/pablo/Escritorio/Todos los horarios.xlsx";
         this.generarArchivos();
-        System.out.println(this.archivos.size());
+        this.debug.write(this.archivos.size());
     }
 
 
@@ -33,20 +35,20 @@ public class GestorArchivo_new {
 
         if (file.exists()) {
             if (file.isDirectory()) {
-                System.out.println("Directorio");
+                this.debug.write("Directorio.");
                 File[] archivos = file.listFiles();
                 for (File archivo : archivos) {
                     if (!(archivo.isDirectory()) && this.filtrarExtension(archivo.getName())) {
                         this.archivos.add(archivo);
-                        System.out.println(archivo.getName());
+                        this.debug.write(archivo.getName());
                     }
                 }
             } else {
-                System.out.println("Archivo.");
+                this.debug.write("Archivo.");
                 this.archivos.add(file);
             }
         } else {
-            System.err.println("Ruta no encontrada.");
+            this.debug.error("Ruta no encontrada.");
         }
     }
 
@@ -83,11 +85,5 @@ public class GestorArchivo_new {
         }
         fis.close();
         return libros;
-    }
-
-    public static void main(String[] args) throws IOException {
-        GestorArchivo_new gestor = new GestorArchivo_new("/home/pablo/Escritorio");
-        ArrayList<XSSFWorkbook> libros = gestor.getLibros();
-        System.out.println(libros);
     }
 }

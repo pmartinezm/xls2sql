@@ -1,64 +1,38 @@
-import gestor.GestorArchivo;
-import modelo.Horario;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
+import gestor.GestorArchivo_new;
+import modelo.Coordenada;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import util.Buscador;
+import util.Debug;
 import util.Posicionador;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class main {
 
     public static void main(String[] args) throws IOException {
-        GestorArchivo gestor = new GestorArchivo("/home/pablo/Escritorio/Todos los horarios.xlsx");
-        XSSFWorkbook libro = gestor.getLibro();
+        Debug debug = Debug.getDebug();
+        GestorArchivo_new gestor = new GestorArchivo_new();
+        XSSFWorkbook libro = gestor.getLibros().get(0);
 
-        XSSFSheet sheet = libro.getSheetAt(0);
+        int sheets = libro.getNumberOfSheets();
+        for (int i = 0; i < sheets; i++) {
+            XSSFSheet sheet = libro.getSheetAt(i);
+            debug.write(sheet.getSheetName());
 
-        Buscador b = new Buscador(sheet);
+            Buscador buscador = new Buscador(sheet);
+            Coordenada coordenada = buscador.buscar("Enseñanza:", 5);
 
-        Horario horario = b.extraerHorario();
+            if (coordenada != null) {
+                Posicionador posicionador = new Posicionador(sheet);
+                int col = posicionador.getSiguienteColumna(coordenada.r, coordenada.c);
 
-
-
-//        ArrayList<ArrayList<String>> horario = b.extraerHorario();
-//
-//        System.out.println("Dias:");
-//        for (ArrayList<String> dia :
-//                horario) {
-//            for (String hora :
-//                    dia) {
-//                System.out.print(hora + "-");
-//            }
-//            System.out.println();
-//        }
-
-        libro.close();
-    }
-
-    public static void main2(String[] args) throws IOException {
-        GestorArchivo gestor = new GestorArchivo();
-        XSSFWorkbook libro = gestor.getLibro();
-
-        //Obtener la primera hoja
-        XSSFSheet sheet = libro.getSheetAt(0);
-        libro.getNumberOfSheets();
-
-        //Ver el horario
-        Buscador buscador = new Buscador(sheet);
-//        ArrayList<ArrayList<String>> horario = buscador.extraerHorario();
-//
-//        for (ArrayList<String> dia :
-//                horario) {
-//            System.out.println(dia);
-//            System.out.println(dia.size());
-//        }
-
-        System.out.println(buscador.buscarHorarioGrupo());
-
-        libro.close();
+                XSSFCell cell = sheet.getRow(coordenada.r).getCell(col);
+                debug.write("Coordenada: " + coordenada);
+                debug.write("Col: " + col);
+                debug.write(cell.toString());
+            }
+        }
     }
 }

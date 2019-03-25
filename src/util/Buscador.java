@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Buscador {
     private XSSFSheet sheet;
+    private Debug debug = Debug.getDebug();
 
     public Buscador(XSSFSheet sheet) {
         this.sheet = sheet;
@@ -32,14 +33,14 @@ public class Buscador {
                         String valor = celda.toString();
 
                         if (valor.equalsIgnoreCase(texto)) {
-                            System.out.println("Encontrado en " + r + "-" + c);
+                            this.debug.write("Encontrado en " + r + "-" + c);
                             return new Coordenada(r, c);
                         }
                     }
                 }
             }
         }
-        System.err.println("No se ha encontrado '" + texto + "'");
+        this.debug.error("No se ha encontrado '" + texto + "'");
         return null;
     }
 
@@ -47,7 +48,7 @@ public class Buscador {
         Horario horario = new Horario();
 
         Coordenada posicionHorario = this.buscar("Tramo horario", 10);
-        System.out.println("Inicio de horario encontrado en " + posicionHorario.toString());
+        this.debug.write("Inicio de horario encontrado en " + posicionHorario.toString());
 
         Posicionador posi = new Posicionador(this.sheet);
 
@@ -58,15 +59,15 @@ public class Buscador {
             c = posicionHorario.c;
             c = posi.getSiguienteColumna(r, c);
 
-            System.out.println(r + "-" + c);
+            this.debug.write(r + "-" + c);
 
             for (int fil = 0; fil < 6; fil++) {
                 r = posi.getSiguienteFila(r, c);
 
                 String valor = this.sheet.getRow(r).getCell(c).toString();
-                System.out.print(valor + " ");
+                this.debug.write(valor + " ");
             }
-            System.out.println();
+            this.debug.write();
         }
 
         return horario;

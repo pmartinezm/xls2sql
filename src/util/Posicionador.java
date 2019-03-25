@@ -6,6 +6,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class Posicionador {
     private XSSFSheet sheet;
+    private Debug debug = Debug.getDebug();
 
     public Posicionador(XSSFSheet sheet) {
         this.sheet = sheet;
@@ -45,8 +46,10 @@ public class Posicionador {
      * @return posición de la columna.
      */
     public int getSiguienteColumna(int r, int c) {
+        this.debug.title("POSICIONADOR, getSigCol");
         Row row = this.sheet.getRow(r);
         int max = row.getLastCellNum();
+        this.debug.write("Max: " + max);
         c++;
         while (c <= max) {
             Cell cell = row.getCell(c);
