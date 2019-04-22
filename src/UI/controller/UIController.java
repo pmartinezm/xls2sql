@@ -15,7 +15,6 @@ import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
 import UI.actions.SelectFilter;
 import UI.actions.ValidatePath;
-import UI.controller.file.FileValidator;
 import UI.models.Colors;
 import gestor.GestorArchivo;
 import lang.Messages;
@@ -28,6 +27,8 @@ public class UIController extends UI {
 	private String filePath;
 	private Debug debug;
 
+	private XSSFWorkbook wb;
+
 	public UIController() {
 		this.debug = Debug.getDebug();
 		this.addListeners();
@@ -36,7 +37,8 @@ public class UIController extends UI {
 	}
 
 	private void initialState() {
-		this.setScanButtonEnabled(false);
+		this.btnScan.setEnabled(false);
+		this.listFilters.setEnabled(false);
 	}
 
 	private void addListeners() {
@@ -54,11 +56,14 @@ public class UIController extends UI {
 		StringBuilder info = new StringBuilder();
 		GestorArchivo g = new GestorArchivo(this.filePath);
 
-		if (g.estado()) {
+		if (g.isValido()) {
 			this.setTxtFilePathBorderColor(Colors.ValidPath);
+			this.listFilters.setEnabled(true);
+			this.btnScan.setEnabled(true);
 
 			try {
 				ArrayList<XSSFWorkbook> libros = g.getLibros();
+				this.wb = libros.get(0);
 				info.append("Books: " + libros.size());
 
 				int sheets = 0;
@@ -68,13 +73,14 @@ public class UIController extends UI {
 				info.append(", Sheets: " + sheets);
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			this.setFileInfo(info.toString());
 		} else {
 			this.setTxtFilePathBorderColor(Colors.WrongPath);
 			this.setFileInfo(Messages.InvalidFile.toString());
+			this.listFilters.setEnabled(false);
+			this.btnScan.setEnabled(false);
 		}
 	}
 
@@ -83,7 +89,8 @@ public class UIController extends UI {
 		DefaultListModel<String> listModel = new DefaultListModel<>();
 
 		for (Method method : filters) {
-			listModel.addElement(method.getName());
+			String name = method.getName();
+			listModel.addElement(name);
 		}
 
 		this.listFilters.setModel(listModel);
@@ -124,6 +131,14 @@ public class UIController extends UI {
 
 	public String getFilePath() {
 		return this.filePath;
+	}
+
+	public XSSFWorkbook getWorkbook() {
+		return this.wb;
+	}
+
+	public void setTxtResults(String results) {
+		this.txtPaneResults.setText(results);
 	}
 
 }

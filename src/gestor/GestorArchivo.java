@@ -86,7 +86,7 @@ public class GestorArchivo {
 		return libros;
 	}
 
-	public boolean estado() {
+	public boolean isValido() {
 		return this.archivos.size() > 0;
 	}
 }

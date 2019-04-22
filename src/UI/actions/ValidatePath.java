@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import UI.controller.UIController;
-import UI.controller.file.FileValidator;
 import UI.models.Colors;
 
 public class ValidatePath implements ActionListener {
