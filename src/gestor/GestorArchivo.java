@@ -1,58 +1,89 @@
 package gestor;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import util.Debug;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class GestorArchivo {
     private String path;
-    private File file;
-    private String[] extensions = {"xls", "xlsx"};
+    private ArrayList<File> archivos = new ArrayList<>();
+    private String[] extensiones = {"xls", "xlsx"};
+    private Debug debug = Debug.getDebug();
 
     public GestorArchivo(String path) {
-            this.path = path;
-            this.generarArchivo();
+        this.path = path;
+        this.generarArchivos();
+        this.debug.write("Archivos: " + this.archivos.size());
     }
 
     public GestorArchivo() {
-        this.path = "/home/pablo/Escritorio/Copia_de_Horario_de_clase_por_grupos.xls";
-        this.generarArchivo();
+        this.path = "/home/pablo/Escritorio/Todos los horarios.xlsx";
+        this.generarArchivos();
+        this.debug.write("Archivos: " + this.archivos.size());
     }
 
 
     /**
      * Si el archivo existe lo asigna a la propiedad.
      */
-    private void generarArchivo() {
+    private void generarArchivos() {
         File file = new File(this.path);
 
         if (file.exists()) {
-            if(file.isDirectory()){
-                System.out.println("Path es directorio.");
-                File directorio = new File(this.path);
-                File[] archivos = directorio.listFiles();
+            if (file.isDirectory()) {
+                this.debug.write("Directorio reconocido.");
+                File[] archivos = file.listFiles();
+                for (File archivo : archivos) {
+                    if (!(archivo.isDirectory()) && this.filtrarExtension(archivo.getName())) {
+                        this.archivos.add(archivo);
+                        this.debug.write("Nombre del archivo: " + archivo.getName());
+                    }
+                }
             } else {
-                System.out.println("Path es archivo.");
-                this.file = file;
-                System.out.println("Archivo generado.");
+                this.debug.write("Archivo reconocido.");
+                this.archivos.add(file);
             }
         } else {
-            this.file = null;
-            System.err.println("El archivo no existe.");
+            this.debug.error("Ruta no encontrada.");
         }
     }
 
+    private String extraerExtension(String nombreArchivo) {
+        int punto = nombreArchivo.lastIndexOf(".");
+        return nombreArchivo.substring(punto + 1);
+    }
+
+    private boolean filtrarExtension(String nombreArchivo) {
+        if (!nombreArchivo.contains(".")) {
+            return false;
+        }
+        for (String extension : this.extensiones) {
+            if (this.extraerExtension(nombreArchivo).equalsIgnoreCase(extension)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
-     * Obtiene el libro del archivo xls.
+     * Obtiene los libros del archivo xls.
+     *
      * @return el libro de trabajo.
      * @throws IOException
      */
-    public XSSFWorkbook getLibro() throws IOException {
-        FileInputStream fis = new FileInputStream(this.file);
-        XSSFWorkbook wb = new XSSFWorkbook(fis);
+    public ArrayList<XSSFWorkbook> getLibros() throws IOException {
+        ArrayList<XSSFWorkbook> libros = new ArrayList<>();
+        FileInputStream fis = null;
+        for (File archivo : this.archivos) {
+            fis = new FileInputStream(archivo);
+            XSSFWorkbook wb = new XSSFWorkbook(fis);
+            libros.add(wb);
+        }
         fis.close();
-        return wb;
+        return libros;
     }
 }

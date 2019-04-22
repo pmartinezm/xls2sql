@@ -1,7 +1,8 @@
 package util;
 
 import modelo.Coordenada;
-import modelo.Horario;
+import modelo.horarios.Horario;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
