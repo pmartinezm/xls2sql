@@ -34,7 +34,7 @@ public class UIController extends UI {
 		this.populateFilterList();
 		this.initialState();
 	}
-	
+
 	private void initialState() {
 		this.setScanButtonEnabled(false);
 	}
@@ -46,37 +46,8 @@ public class UIController extends UI {
 		this.listFilters.addListSelectionListener(new SelectFilter(this));
 	}
 
-	public void setTxtFilePathBorderColor(Color color) {
-		this.txtFilePath.setBorder(null);
-		this.txtFilePath.setBorder(new LineBorder(color));
-	}
-
-	/**
-	 * Sets file path
-	 * 
-	 * @param path
-	 */
-	public void setFilePath(String path) {
-		this.filePath = path;
-	}
-
-	/**
-	 * Gets path from txt and assigns it to the path variable.
-	 */
-	public void setFilePath() {
-		this.filePath = this.txtFilePath.getText();
-	}
-
-	public String getFilePath() {
-		return this.filePath;
-	}
-
 	public void showFilePath() {
 		this.txtFilePath.setText(this.filePath);
-	}
-
-	public void setFileInfo(String info) {
-		this.lblInfo.setText(info);
 	}
 
 	public void processFile() {
@@ -117,13 +88,42 @@ public class UIController extends UI {
 
 		this.listFilters.setModel(listModel);
 	}
-	
+
+	public void setTxtFilePathBorderColor(Color color) {
+		this.txtFilePath.setBorder(null);
+		this.txtFilePath.setBorder(new LineBorder(color));
+	}
+
+	public void setFileInfo(String info) {
+		this.lblInfo.setText(info);
+	}
+
 	public JList getListFilter() {
 		return this.listFilters;
 	}
-	
+
 	public void setScanButtonEnabled(boolean enabled) {
 		this.btnScan.setEnabled(enabled);
+	}
+
+	/**
+	 * Sets file path
+	 * 
+	 * @param path
+	 */
+	public void setFilePath(String path) {
+		this.filePath = path;
+	}
+
+	/**
+	 * Gets path from txt and assigns it to the path variable.
+	 */
+	public void setFilePath() {
+		this.filePath = this.txtFilePath.getText();
+	}
+
+	public String getFilePath() {
+		return this.filePath;
 	}
 
 }
