@@ -1,12 +1,12 @@
-package controller;
+package modelo;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import interfaces.Filtros;
-import modelo.Coordenada;
+import controller.Buscador;
+import interfaces.IFiltros;
 
-public class Filtro implements Filtros {
+public class Filtro implements IFiltros {
 	private XSSFWorkbook wb;
 	private int horariosCounter = 0;
 	private int cursosCounter = 0;
@@ -43,24 +43,24 @@ public class Filtro implements Filtros {
 	public void contarCursos() {
 		int sheets = this.wb.getNumberOfSheets();
 		int counter = 0;
-		
-		for(int i = 0; i < sheets; i++) {
+
+		for (int i = 0; i < sheets; i++) {
 			XSSFSheet current = this.wb.getSheetAt(i);
 			Buscador b = new Buscador(current);
-			
+
 			Coordenada coord = b.buscar("Enseñanza:", 5);
-			
-			if(coord != null) {
+
+			if (coord != null) {
 				counter++;
 			}
 		}
 		this.cursosCounter = counter;
 	}
-	
+
 	public int getCursosCounter() {
 		return this.cursosCounter;
 	}
-	
+
 	public int getHorariosCounter() {
 		return this.horariosCounter;
 	}

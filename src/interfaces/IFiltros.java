@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Filtros {
+public interface IFiltros {
 	public void contarHorarios();
 	public void contarCursos();
 }

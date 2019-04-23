@@ -1,4 +1,4 @@
-package UI.models;
+package modelo;
 
 import java.awt.Color;
 

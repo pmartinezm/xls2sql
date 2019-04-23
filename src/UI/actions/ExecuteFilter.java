@@ -8,10 +8,10 @@ import java.lang.reflect.Method;
 import javax.swing.JList;
 
 import UI.controller.UIController;
-import controller.Filtro;
-import interfaces.Filtros;
+import interfaces.IFiltros;
+import modelo.Filtro;
 
-public class ExecuteFilter implements ActionListener, Filtros{
+public class ExecuteFilter implements ActionListener, IFiltros{
 	private UIController controller;
 
 	public ExecuteFilter(UIController controller) {

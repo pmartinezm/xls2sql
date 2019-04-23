@@ -15,9 +15,10 @@ import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
 import UI.actions.SelectFilter;
 import UI.actions.ValidatePath;
-import UI.models.Colors;
 import gestor.GestorArchivo;
-import lang.Messages;
+import modelo.Colors;
+import modelo.Filtro;
+import modelo.Messages;
 import util.Debug;
 import util.Reflex;
 
@@ -26,8 +27,8 @@ public class UIController extends UI {
 
 	private String filePath;
 	private Debug debug;
-
 	private XSSFWorkbook wb;
+	private Filtro filtro;
 
 	public UIController() {
 		this.debug = Debug.getDebug();
@@ -59,7 +60,6 @@ public class UIController extends UI {
 		if (g.isValido()) {
 			this.setTxtFilePathBorderColor(Colors.ValidPath);
 			this.listFilters.setEnabled(true);
-			this.btnScan.setEnabled(true);
 
 			try {
 				ArrayList<XSSFWorkbook> libros = g.getLibros();
@@ -83,8 +83,12 @@ public class UIController extends UI {
 			this.btnScan.setEnabled(false);
 		}
 	}
-
+	
 	private void populateFilterList() {
+		
+	}
+
+	private void populateFilterList2() {
 		Method[] filters = Reflex.getFilters();
 		DefaultListModel<String> listModel = new DefaultListModel<>();
 

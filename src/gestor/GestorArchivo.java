@@ -21,9 +21,7 @@ public class GestorArchivo {
 	}
 
 	public GestorArchivo() {
-		this.path = "/home/pablo/Escritorio/Todos los horarios.xlsx";
-		this.generarArchivos();
-		this.debug.write("Archivos: " + this.archivos.size());
+
 	}
 
 	/**
