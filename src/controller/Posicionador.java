@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
+import modelo.Coordenada;
 import util.Debug;
 
 public class Posicionador {

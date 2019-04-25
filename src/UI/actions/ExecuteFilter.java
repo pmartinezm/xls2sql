@@ -10,8 +10,9 @@ import javax.swing.JList;
 import UI.controller.UIController;
 import interfaces.IFiltros;
 import modelo.Filtro;
+import modelo.comando.filtros.ComandoFiltro;
 
-public class ExecuteFilter implements ActionListener, IFiltros{
+public class ExecuteFilter implements ActionListener {
 	private UIController controller;
 
 	public ExecuteFilter(UIController controller) {
@@ -21,31 +22,10 @@ public class ExecuteFilter implements ActionListener, IFiltros{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JList listFilter = this.controller.getListFilter();
-		String selected = (String) listFilter.getSelectedValue();
-
-		try {
-			Method method = this.getClass().getDeclaredMethod(selected, null);
-			method.invoke(this, null);
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException e1) {
-			e1.printStackTrace();
-		}
-	}
-
-	@Override
-	public void contarHorarios() {
-		Filtro f = new Filtro(this.controller.getWorkbook());
-		f.contarHorarios();
-		int horarios = f.getHorariosCounter();
-		this.controller.setTxtResults("Horarios encontrados: " + horarios);
-	}
-
-	@Override
-	public void contarCursos() {
-		Filtro f = new Filtro(this.controller.getWorkbook());
-		f.contarCursos();
-		int cursos = f.getCursosCounter();
-		this.controller.setTxtResults("Cursos encontrados: " + cursos);
+		ComandoFiltro selectedValue = (ComandoFiltro) listFilter.getSelectedValue();
+		
+		selectedValue.ejecutar(this.controller.getFiltro());
+		this.controller.setTxtResults(selectedValue.getResultados());
 	}
 
 }

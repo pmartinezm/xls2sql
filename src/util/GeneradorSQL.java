@@ -1,4 +1,4 @@
-package controller;
+package util;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ public class GeneradorSQL {
 
     }
 
-    public static String cursos() {
+    public static String crearTablaCursos() {
         StringBuilder sql = new StringBuilder();
 
         sql.append("create table if not exists curso (");

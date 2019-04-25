@@ -5,9 +5,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import controller.Buscador;
-import controller.GeneradorSQL;
 import controller.Posicionador;
 import util.Debug;
+import util.GeneradorSQL;
 
 import java.io.IOException;
 import java.util.ArrayList;

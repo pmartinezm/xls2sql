@@ -19,6 +19,10 @@ import gestor.GestorArchivo;
 import modelo.Colors;
 import modelo.Filtro;
 import modelo.Messages;
+import modelo.comando.filtros.ComandoContarCursos;
+import modelo.comando.filtros.ComandoContarHorarios;
+import modelo.comando.filtros.ComandoExtraerCursos;
+import modelo.comando.filtros.ComandoFiltro;
 import util.Debug;
 import util.Reflex;
 
@@ -29,10 +33,13 @@ public class UIController extends UI {
 	private Debug debug;
 	private XSSFWorkbook wb;
 	private Filtro filtro;
+	private ArrayList<ComandoFiltro> commands;
 
 	public UIController() {
 		this.debug = Debug.getDebug();
+		
 		this.addListeners();
+		this.createFilterCommands();
 		this.populateFilterList();
 		this.initialState();
 	}
@@ -64,6 +71,7 @@ public class UIController extends UI {
 			try {
 				ArrayList<XSSFWorkbook> libros = g.getLibros();
 				this.wb = libros.get(0);
+				this.filtro = new Filtro(wb);
 				info.append("Books: " + libros.size());
 
 				int sheets = 0;
@@ -83,9 +91,23 @@ public class UIController extends UI {
 			this.btnScan.setEnabled(false);
 		}
 	}
-	
+
+	private void createFilterCommands() {
+		this.commands = new ArrayList<>();
+
+		this.commands.add(new ComandoContarCursos("Contar cursos"));
+		this.commands.add(new ComandoContarHorarios("Contar horarios"));
+		this.commands.add(new ComandoExtraerCursos("Extraer cursos"));
+	}
+
 	private void populateFilterList() {
+		DefaultListModel<ComandoFiltro> listModel = new DefaultListModel<>();
 		
+		for(ComandoFiltro command: this.commands){
+			listModel.addElement(command);
+		}
+		
+		this.listFilters.setModel(listModel);
 	}
 
 	private void populateFilterList2() {
@@ -139,6 +161,10 @@ public class UIController extends UI {
 
 	public XSSFWorkbook getWorkbook() {
 		return this.wb;
+	}
+	
+	public Filtro getFiltro() {
+		return this.filtro;
 	}
 
 	public void setTxtResults(String results) {
