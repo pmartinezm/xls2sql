@@ -17,6 +17,7 @@ import java.awt.Color;
 import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
+import javax.swing.JScrollPane;
 
 public class UI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +39,8 @@ public class UI extends JFrame {
 	protected JTextPane txtPaneResults;
 	protected JLabel lblFileInfo;
 	protected JLabel lblInfo;
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
 
 	public UI() {
 		setTitle("xls2sql");
@@ -67,10 +70,10 @@ public class UI extends JFrame {
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(this.contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWidths = new int[]{0, 20, 0, 0, 0};
+		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 150, 0, 0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
 		lblSelectAFile = new JLabel("Select a file or directory");
@@ -85,7 +88,7 @@ public class UI extends JFrame {
 		txtFilePath = new JTextField();
 		txtFilePath.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		GridBagConstraints gbc_txtFilePath = new GridBagConstraints();
-		gbc_txtFilePath.gridwidth = 6;
+		gbc_txtFilePath.gridwidth = 4;
 		gbc_txtFilePath.insets = new Insets(0, 0, 5, 0);
 		gbc_txtFilePath.fill = GridBagConstraints.BOTH;
 		gbc_txtFilePath.gridx = 0;
@@ -116,16 +119,16 @@ public class UI extends JFrame {
 		gbc_lblFileInfo.anchor = GridBagConstraints.WEST;
 		gbc_lblFileInfo.insets = new Insets(0, 0, 5, 5);
 		gbc_lblFileInfo.gridx = 0;
-		gbc_lblFileInfo.gridy = 4;
+		gbc_lblFileInfo.gridy = 3;
 		contentPane.add(lblFileInfo, gbc_lblFileInfo);
 		
 		lblInfo = new JLabel("");
 		GridBagConstraints gbc_lblInfo = new GridBagConstraints();
 		gbc_lblInfo.anchor = GridBagConstraints.WEST;
-		gbc_lblInfo.gridwidth = 5;
-		gbc_lblInfo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblInfo.gridwidth = 3;
+		gbc_lblInfo.insets = new Insets(0, 0, 5, 0);
 		gbc_lblInfo.gridx = 1;
-		gbc_lblInfo.gridy = 4;
+		gbc_lblInfo.gridy = 3;
 		contentPane.add(lblInfo, gbc_lblInfo);
 		
 		lblSelectAFilter = new JLabel("Select a filter");
@@ -134,35 +137,42 @@ public class UI extends JFrame {
 		gbc_lblSelectAFilter.gridwidth = 3;
 		gbc_lblSelectAFilter.insets = new Insets(0, 0, 5, 5);
 		gbc_lblSelectAFilter.gridx = 0;
-		gbc_lblSelectAFilter.gridy = 6;
+		gbc_lblSelectAFilter.gridy = 4;
 		contentPane.add(lblSelectAFilter, gbc_lblSelectAFilter);
 		
+		scrollPane = new JScrollPane();
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.gridwidth = 2;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.gridx = 0;
+		gbc_scrollPane.gridy = 5;
+		contentPane.add(scrollPane, gbc_scrollPane);
+		
 		listFilters = new JList();
+		scrollPane.setViewportView(listFilters);
 		listFilters.setBorder(new LineBorder(new Color(0, 0, 0)));
-		GridBagConstraints gbc_listFilters = new GridBagConstraints();
-		gbc_listFilters.gridwidth = 2;
-		gbc_listFilters.insets = new Insets(0, 0, 5, 5);
-		gbc_listFilters.fill = GridBagConstraints.BOTH;
-		gbc_listFilters.gridx = 0;
-		gbc_listFilters.gridy = 7;
-		contentPane.add(listFilters, gbc_listFilters);
 		
 		btnScan = new JButton("Scan");
 		GridBagConstraints gbc_btnScan = new GridBagConstraints();
-		gbc_btnScan.gridwidth = 3;
+		gbc_btnScan.anchor = GridBagConstraints.NORTH;
 		gbc_btnScan.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnScan.insets = new Insets(0, 0, 5, 5);
 		gbc_btnScan.gridx = 2;
-		gbc_btnScan.gridy = 7;
+		gbc_btnScan.gridy = 5;
 		contentPane.add(btnScan, gbc_btnScan);
 		
+		scrollPane_1 = new JScrollPane();
+		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
+		gbc_scrollPane_1.gridwidth = 4;
+		gbc_scrollPane_1.insets = new Insets(0, 0, 0, 5);
+		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane_1.gridx = 0;
+		gbc_scrollPane_1.gridy = 6;
+		contentPane.add(scrollPane_1, gbc_scrollPane_1);
+		
 		txtPaneResults = new JTextPane();
+		scrollPane_1.setViewportView(txtPaneResults);
 		txtPaneResults.setBorder(new LineBorder(new Color(0, 0, 0)));
-		GridBagConstraints gbc_txtPaneResults = new GridBagConstraints();
-		gbc_txtPaneResults.insets = new Insets(0, 0, 5, 0);
-		gbc_txtPaneResults.fill = GridBagConstraints.BOTH;
-		gbc_txtPaneResults.gridx = 5;
-		gbc_txtPaneResults.gridy = 7;
-		contentPane.add(txtPaneResults, gbc_txtPaneResults);
 	}
 }

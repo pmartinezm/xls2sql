@@ -1,4 +1,4 @@
-package modelo.comando.filtros;
+package modelo.filtros;
 
 import modelo.Filtro;
 
@@ -12,7 +12,7 @@ public class ComandoContarHorarios extends ComandoFiltro {
 	public void ejecutar(Filtro filtro) {
 		filtro.contarHorarios();
 		int res = filtro.getHorariosCounter();
-		this.resultados = String.valueOf(res);
+		this.resultados = "/* " + res + " horarios encontrados. */";
 	}
 
 }

@@ -1,4 +1,4 @@
-package modelo.comando.filtros;
+package modelo.filtros;
 
 import modelo.Filtro;
 
@@ -13,6 +13,6 @@ public class ComandoContarCursos extends ComandoFiltro {
 	public void ejecutar(Filtro filtro) {
 		filtro.contarCursos();
 		int res = filtro.getCursosCounter();
-		this.resultados = String.valueOf(res);
+		this.resultados = "/* " + res + " cursos encontrados. */";
 	}
 }

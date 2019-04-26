@@ -19,10 +19,10 @@ import gestor.GestorArchivo;
 import modelo.Colors;
 import modelo.Filtro;
 import modelo.Messages;
-import modelo.comando.filtros.ComandoContarCursos;
-import modelo.comando.filtros.ComandoContarHorarios;
-import modelo.comando.filtros.ComandoExtraerCursos;
-import modelo.comando.filtros.ComandoFiltro;
+import modelo.filtros.ComandoContarCursos;
+import modelo.filtros.ComandoContarHorarios;
+import modelo.filtros.ComandoExtraerCursos;
+import modelo.filtros.ComandoFiltro;
 import util.Debug;
 import util.Reflex;
 
@@ -168,6 +168,7 @@ public class UIController extends UI {
 	}
 
 	public void setTxtResults(String results) {
+		this.txtPaneResults.setText("");
 		this.txtPaneResults.setText(results);
 	}
 

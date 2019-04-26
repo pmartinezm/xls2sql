@@ -10,7 +10,7 @@ import javax.swing.JList;
 import UI.controller.UIController;
 import interfaces.IFiltros;
 import modelo.Filtro;
-import modelo.comando.filtros.ComandoFiltro;
+import modelo.filtros.ComandoFiltro;
 
 public class ExecuteFilter implements ActionListener {
 	private UIController controller;
