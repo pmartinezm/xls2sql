@@ -100,9 +100,17 @@ public class Filtros implements IFiltros {
 			Coordenada buscar = b.buscar("tramo horario", 50);
 
 			if (buscar != null) {
-				int r = buscar.r + 1;
-				int c = buscar.c + 1;
-				
+				Coordenada current = buscar;
+				System.out.println(current);
+				for(int dia = 0; dia < DIAS; dia++) {
+					for(int hora = 0; hora < HORAS; hora++) {
+						current = p.getSiguienteColumna(current);
+						current = p.getSiguienteFila(current);
+						String casilla = sheet.getRow(current.r).getCell(current.c).toString();
+						//System.out.println(casilla);
+						System.out.println(current);
+					}
+				}
 			}
 
 		}

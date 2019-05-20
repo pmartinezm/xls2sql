@@ -12,8 +12,8 @@ public class ComandoExtraerHorarios extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(Filtros filtro) {
-		String out = GeneradorSQL.comentar("No implementado.");
-		return out;
+		Object extraerHorarios = filtro.extraerHorarios();
+		return "";
 	}
 
 }
