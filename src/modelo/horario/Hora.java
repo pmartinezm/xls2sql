@@ -1,4 +1,4 @@
-package modelo;
+package modelo.horario;
 
 import java.util.ArrayList;
 

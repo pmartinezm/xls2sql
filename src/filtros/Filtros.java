@@ -1,4 +1,4 @@
-package modelo;
+package filtros;
 
 import java.util.ArrayList;
 
@@ -8,23 +8,25 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import controller.Buscador;
 import controller.Posicionador;
 import interfaces.IFiltros;
+import modelo.Coordenada;
+import util.GeneradorSQL;
 
-public class Filtro implements IFiltros {
+public class Filtros implements IFiltros {
 	private XSSFWorkbook wb;
 	private int horariosCounter = 0;
 	private int cursosCounter = 0;
 	private ArrayList<String> cursos;
 
-	public Filtro() {
+	public Filtros() {
 
 	}
 
-	public Filtro(XSSFWorkbook wb) {
+	public Filtros(XSSFWorkbook wb) {
 		this.wb = wb;
 	}
 
 	@Override
-	public void contarHorarios() {
+	public int contarHorarios() {
 		int sheets = this.wb.getNumberOfSheets();
 		int counter = 0;
 
@@ -40,15 +42,11 @@ public class Filtro implements IFiltros {
 		}
 
 		System.out.println("Encontrados " + counter + " horarios.");
-		this.horariosCounter = counter;
-	}
-
-	public int getHorariosCounter() {
-		return this.horariosCounter;
+		return counter;
 	}
 
 	@Override
-	public void contarCursos() {
+	public int contarCursos() {
 		int sheets = this.wb.getNumberOfSheets();
 		int counter = 0;
 
@@ -62,17 +60,13 @@ public class Filtro implements IFiltros {
 				counter++;
 			}
 		}
-		this.cursosCounter = counter;
-	}
-
-	public int getCursosCounter() {
-		return this.cursosCounter;
+		return counter;
 	}
 
 	@Override
-	public void extraerCursos() {
+	public ArrayList<String> extraerCursos() {
 		int sheets = this.wb.getNumberOfSheets();
-		this.cursos = new ArrayList<>();
+		ArrayList<String> cursos = new ArrayList<>();
 
 		for (int i = 0; i < sheets; i++) {
 			XSSFSheet sheet = this.wb.getSheetAt(i);
@@ -85,12 +79,34 @@ public class Filtro implements IFiltros {
 				int sigCol = p.getSiguienteColumna(coord.r, coord.c);
 				String celda = sheet.getRow(coord.r).getCell(sigCol).toString();
 
-				this.cursos.add(celda);
+				cursos.add(celda);
 			}
 		}
+
+		return cursos;
 	}
 
-	public ArrayList<String> getCursos() {
-		return this.cursos;
+	@Override
+	public Object extraerHorarios() {
+		final int DIAS = 5;
+		final int HORAS = 6;
+		int sheets = this.wb.getNumberOfSheets();
+
+		for (int i = 0; i < sheets; i++) {
+			XSSFSheet sheet = this.wb.getSheetAt(i);
+			Buscador b = new Buscador(sheet);
+			Posicionador p = new Posicionador(sheet);
+
+			Coordenada buscar = b.buscar("tramo horario", 50);
+
+			if (buscar != null) {
+				int r = buscar.r + 1;
+				int c = buscar.c + 1;
+				
+			}
+
+		}
+
+		return null;
 	}
 }

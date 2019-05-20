@@ -1,7 +1,7 @@
 package controller;
 
 import modelo.Coordenada;
-import modelo.Horario;
+import modelo.horario.Horario;
 import util.Debug;
 
 import org.apache.poi.ss.usermodel.Cell;

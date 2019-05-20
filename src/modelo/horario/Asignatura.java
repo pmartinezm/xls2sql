@@ -1,4 +1,4 @@
-package modelo;
+package modelo.horario;
 
 public class Asignatura {
 	private String nombre;

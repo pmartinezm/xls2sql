@@ -15,14 +15,15 @@ import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
 import UI.actions.SelectFilter;
 import UI.actions.ValidatePath;
+import filtros.Filtros;
+import filtros.comandos.ComandoContarCursos;
+import filtros.comandos.ComandoContarHorarios;
+import filtros.comandos.ComandoExtraerCursos;
+import filtros.comandos.ComandoExtraerHorarios;
+import filtros.comandos.ComandoFiltro;
 import gestor.GestorArchivo;
 import modelo.Colors;
-import modelo.Filtro;
 import modelo.Messages;
-import modelo.filtros.ComandoContarCursos;
-import modelo.filtros.ComandoContarHorarios;
-import modelo.filtros.ComandoExtraerCursos;
-import modelo.filtros.ComandoFiltro;
 import util.Debug;
 import util.Reflex;
 
@@ -32,7 +33,7 @@ public class UIController extends UI {
 	private String filePath;
 	private Debug debug;
 	private XSSFWorkbook wb;
-	private Filtro filtro;
+	private Filtros filtro;
 	private ArrayList<ComandoFiltro> commands;
 
 	public UIController() {
@@ -71,7 +72,7 @@ public class UIController extends UI {
 			try {
 				ArrayList<XSSFWorkbook> libros = g.getLibros();
 				this.wb = libros.get(0);
-				this.filtro = new Filtro(wb);
+				this.filtro = new Filtros(wb);
 				info.append("Books: " + libros.size());
 
 				int sheets = 0;
@@ -98,6 +99,7 @@ public class UIController extends UI {
 		this.commands.add(new ComandoContarCursos("Contar cursos"));
 		this.commands.add(new ComandoContarHorarios("Contar horarios"));
 		this.commands.add(new ComandoExtraerCursos("Extraer cursos"));
+		this.commands.add(new ComandoExtraerHorarios("Extraer horarios"));
 	}
 
 	private void populateFilterList() {
@@ -123,7 +125,7 @@ public class UIController extends UI {
 	}
 
 	public void setTxtFilePathBorderColor(Color color) {
-		this.txtFilePath.setBorder(null);
+		//this.txtFilePath.setBorder(null);
 		this.txtFilePath.setBorder(new LineBorder(color));
 	}
 
@@ -163,7 +165,7 @@ public class UIController extends UI {
 		return this.wb;
 	}
 	
-	public Filtro getFiltro() {
+	public Filtros getFiltro() {
 		return this.filtro;
 	}
 

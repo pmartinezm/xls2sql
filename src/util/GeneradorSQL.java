@@ -6,6 +6,10 @@ public class GeneradorSQL {
     public void crearTabla() {
 
     }
+    
+    public static String comentar(String msg) {
+    	return "/* " + msg + " */\n";
+    }
 
     public static String crearTablaCursos() {
         StringBuilder sql = new StringBuilder();

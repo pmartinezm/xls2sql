@@ -8,9 +8,9 @@ import java.lang.reflect.Method;
 import javax.swing.JList;
 
 import UI.controller.UIController;
+import filtros.Filtros;
+import filtros.comandos.ComandoFiltro;
 import interfaces.IFiltros;
-import modelo.Filtro;
-import modelo.filtros.ComandoFiltro;
 
 public class ExecuteFilter implements ActionListener {
 	private UIController controller;
@@ -24,8 +24,8 @@ public class ExecuteFilter implements ActionListener {
 		JList listFilter = this.controller.getListFilter();
 		ComandoFiltro selectedValue = (ComandoFiltro) listFilter.getSelectedValue();
 		
-		selectedValue.ejecutar(this.controller.getFiltro());
-		this.controller.setTxtResults(selectedValue.getResultados());
+		String content = selectedValue.ejecutar(this.controller.getFiltro());
+		this.controller.setTxtResults(content);
 	}
 
 }

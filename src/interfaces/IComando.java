@@ -1,6 +1,6 @@
 package interfaces;
 
-import modelo.Filtro;
+import filtros.Filtros;
 
 public interface IComando {
 	public void ejecutar();

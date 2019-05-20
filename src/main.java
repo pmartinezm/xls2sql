@@ -17,7 +17,7 @@ public class main {
     public static void main(String[] args) throws IOException {
         Debug debug = Debug.getDebug();
         //debug.disable();
-        GestorArchivo gestor = new GestorArchivo();
+        GestorArchivo gestor = new GestorArchivo("C:\fichero.xls");
         XSSFWorkbook libro = gestor.getLibros().get(0);
 
         int sheets = libro.getNumberOfSheets();

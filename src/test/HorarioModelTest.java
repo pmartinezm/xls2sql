@@ -1,9 +1,9 @@
 package test;
 
-import modelo.Asignatura;
-import modelo.Dia;
-import modelo.Hora;
-import modelo.Horario;
+import modelo.horario.Asignatura;
+import modelo.horario.Dia;
+import modelo.horario.Hora;
+import modelo.horario.Horario;
 
 public class HorarioModelTest {
 	public static void main(String[] args) {
