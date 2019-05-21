@@ -9,6 +9,9 @@ import controller.Buscador;
 import controller.Posicionador;
 import interfaces.IFiltros;
 import modelo.Coordenada;
+import modelo.horario.Asignatura;
+import modelo.horario.Dia;
+import modelo.horario.Hora;
 import modelo.horario.Horario;
 import util.GeneradorSQL;
 
@@ -92,6 +95,7 @@ public class Filtros implements IFiltros {
 		final int DIAS = 5;
 		final int HORAS = 6;
 		int sheets = this.wb.getNumberOfSheets();
+		ArrayList<Horario> horarios = new ArrayList<>();
 
 		for (int i = 0; i < sheets; i++) {
 			XSSFSheet sheet = this.wb.getSheetAt(i);
@@ -103,19 +107,25 @@ public class Filtros implements IFiltros {
 			if (buscar != null) {
 				Coordenada current = buscar;
 				System.out.println(current);
+				Horario Ehorario = new Horario("");
 				for (int dia = 0; dia < DIAS; dia++) {
+					Dia Edia = new Dia();
 					current = p.getSiguienteColumna(current);
 					for (int hora = 0; hora < HORAS; hora++) {
+						Hora Ehora = new Hora();
+						Asignatura a = new Asignatura(sheet.getRow(current.r).getCell(current.c).toString());
+						Ehora.addAsignatura(a);
 						current = p.getSiguienteFila(current);
-						System.out.println(sheet.getRow(current.r).getCell(current.c).toString());
+
+						Edia.addHora(Ehora);
 					}
+					Ehorario.addDia(Edia);
 					current.r = buscar.r;
 				}
-				//break;
+				horarios.add(Ehorario);
 			}
-
 		}
-
+		System.out.println("Horarios: " + horarios.size());
 		return null;
 	}
 }
