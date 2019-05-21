@@ -38,6 +38,7 @@ public class UIController extends UI {
 
 	public UIController() {
 		this.debug = Debug.getDebug();
+		this.debug.disable();
 		
 		this.addListeners();
 		this.createFilterCommands();

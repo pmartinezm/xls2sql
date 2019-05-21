@@ -9,6 +9,7 @@ import controller.Buscador;
 import controller.Posicionador;
 import interfaces.IFiltros;
 import modelo.Coordenada;
+import modelo.horario.Horario;
 import util.GeneradorSQL;
 
 public class Filtros implements IFiltros {
@@ -87,7 +88,7 @@ public class Filtros implements IFiltros {
 	}
 
 	@Override
-	public Object extraerHorarios() {
+	public ArrayList<Horario> extraerHorarios() {
 		final int DIAS = 5;
 		final int HORAS = 6;
 		int sheets = this.wb.getNumberOfSheets();
@@ -102,15 +103,15 @@ public class Filtros implements IFiltros {
 			if (buscar != null) {
 				Coordenada current = buscar;
 				System.out.println(current);
-				for(int dia = 0; dia < DIAS; dia++) {
-					for(int hora = 0; hora < HORAS; hora++) {
-						current = p.getSiguienteColumna(current);
+				for (int dia = 0; dia < DIAS; dia++) {
+					current = p.getSiguienteColumna(current);
+					for (int hora = 0; hora < HORAS; hora++) {
 						current = p.getSiguienteFila(current);
-						String casilla = sheet.getRow(current.r).getCell(current.c).toString();
-						//System.out.println(casilla);
-						System.out.println(current);
+						System.out.println(sheet.getRow(current.r).getCell(current.c).toString());
 					}
+					current.r = buscar.r;
 				}
+				//break;
 			}
 
 		}

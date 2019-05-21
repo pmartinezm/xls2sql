@@ -2,9 +2,11 @@ package interfaces;
 
 import java.util.ArrayList;
 
+import modelo.horario.Horario;
+
 public interface IFiltros {
 	public int contarHorarios();
 	public int contarCursos();
 	public ArrayList<String> extraerCursos();
-	public Object extraerHorarios();
+	public ArrayList<Horario> extraerHorarios();
 }
