@@ -1,12 +1,9 @@
 package UI.actions;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import UI.controller.UIController;
-import modelo.Colors;
 
 public class ValidatePath implements ActionListener {
 	private UIController controller;

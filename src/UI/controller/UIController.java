@@ -97,10 +97,10 @@ public class UIController extends UI {
 	private void createFilterCommands() {
 		this.commands = new ArrayList<>();
 
-		this.commands.add(new ComandoContarCursos("Contar cursos"));
-		this.commands.add(new ComandoContarHorarios("Contar horarios"));
-		this.commands.add(new ComandoExtraerCursos("Extraer cursos"));
-		this.commands.add(new ComandoExtraerHorarios("Extraer horarios"));
+		this.commands.add(new ComandoContarCursos());
+		this.commands.add(new ComandoContarHorarios());
+		this.commands.add(new ComandoExtraerCursos());
+		this.commands.add(new ComandoExtraerHorarios());
 	}
 
 	private void populateFilterList() {

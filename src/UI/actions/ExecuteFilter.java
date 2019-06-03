@@ -2,15 +2,11 @@ package UI.actions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import javax.swing.JList;
 
 import UI.controller.UIController;
-import filtros.Filtros;
 import filtros.comandos.ComandoFiltro;
-import interfaces.IFiltros;
 
 public class ExecuteFilter implements ActionListener {
 	private UIController controller;

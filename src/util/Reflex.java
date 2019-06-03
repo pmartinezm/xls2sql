@@ -2,7 +2,6 @@ package util;
 
 import java.lang.reflect.Method;
 
-import filtros.Filtros;
 import interfaces.IFiltros;
 
 public class Reflex {

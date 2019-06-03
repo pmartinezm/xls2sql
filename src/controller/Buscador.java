@@ -1,14 +1,11 @@
 package controller;
 
-import modelo.Coordenada;
-import modelo.horario.Horario;
-import util.Debug;
-
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
-import java.util.ArrayList;
+import modelo.Coordenada;
+import util.Debug;
 
 public class Buscador {
 	private XSSFSheet sheet;

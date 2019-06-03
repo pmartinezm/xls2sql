@@ -13,7 +13,6 @@ import modelo.horario.Asignatura;
 import modelo.horario.Dia;
 import modelo.horario.Hora;
 import modelo.horario.Horario;
-import util.GeneradorSQL;
 
 public class Filtros implements IFiltros {
 	private XSSFWorkbook wb;

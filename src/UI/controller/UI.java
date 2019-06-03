@@ -1,23 +1,24 @@
 package UI.controller;
 
+import java.awt.Color;
 import java.awt.FileDialog;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import java.awt.Insets;
-import javax.swing.JTextField;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.JList;
 import javax.swing.JLabel;
-import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class UI extends JFrame {
 	private static final long serialVersionUID = 1L;

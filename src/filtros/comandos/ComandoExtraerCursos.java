@@ -7,9 +7,9 @@ import util.GeneradorSQL;
 
 public class ComandoExtraerCursos extends ComandoFiltro {
 
-	public ComandoExtraerCursos(String nombre) {
+	public ComandoExtraerCursos() {
 		super();
-		this.nombre = nombre;
+		this.nombre = "Extraer cursos";
 	}
 
 	@Override

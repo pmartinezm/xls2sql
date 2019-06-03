@@ -1,13 +1,12 @@
 package filtros.comandos;
 
 import filtros.Filtros;
-import util.GeneradorSQL;
 
 public class ComandoExtraerHorarios extends ComandoFiltro {
 
-	public ComandoExtraerHorarios(String nombre) {
+	public ComandoExtraerHorarios() {
 		super();
-		this.nombre = nombre;
+		this.nombre = "Extraer horarios";
 	}
 
 	@Override

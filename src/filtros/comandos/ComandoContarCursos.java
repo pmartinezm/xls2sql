@@ -5,9 +5,9 @@ import util.GeneradorSQL;
 
 public class ComandoContarCursos extends ComandoFiltro {
 
-	public ComandoContarCursos(String nombre) {
+	public ComandoContarCursos() {
 		super();
-		this.nombre = nombre;
+		this.nombre = "Contar cursos";
 	}
 
 	@Override

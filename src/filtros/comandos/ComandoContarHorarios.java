@@ -4,9 +4,9 @@ import filtros.Filtros;
 import util.GeneradorSQL;
 
 public class ComandoContarHorarios extends ComandoFiltro {
-	public ComandoContarHorarios(String nombre) {
+	public ComandoContarHorarios() {
 		super();
-		this.nombre = nombre;
+		this.nombre = "Contar horarios";
 	}
 
 	@Override
