@@ -1,6 +1,7 @@
 package filtros.comandos;
 
 import filtros.Filtros;
+import util.GeneradorSQL;
 
 public class ComandoContarHorarios extends ComandoFiltro {
 	public ComandoContarHorarios(String nombre) {
@@ -11,9 +12,7 @@ public class ComandoContarHorarios extends ComandoFiltro {
 	@Override
 	public String ejecutar(Filtros filtro) {
 		int res = filtro.contarHorarios();
-		String out = "/* " + res + " horarios encontrados. */";
-		
-		return out;
+		return GeneradorSQL.comentar(res + " horarios encontrados.");
 	}
 
 }

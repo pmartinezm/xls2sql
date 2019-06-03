@@ -17,9 +17,6 @@ import util.GeneradorSQL;
 
 public class Filtros implements IFiltros {
 	private XSSFWorkbook wb;
-	private int horariosCounter = 0;
-	private int cursosCounter = 0;
-	private ArrayList<String> cursos;
 
 	public Filtros() {
 
@@ -128,4 +125,35 @@ public class Filtros implements IFiltros {
 		System.out.println("Horarios: " + horarios.size());
 		return null;
 	}
+
+	@Override
+	public Object creandoUnFiltro() {
+		return null;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
