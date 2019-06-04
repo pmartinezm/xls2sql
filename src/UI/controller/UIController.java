@@ -18,6 +18,7 @@ import UI.actions.ValidatePath;
 import filtros.Filtros;
 import filtros.comandos.ComandoContarCursos;
 import filtros.comandos.ComandoContarHorarios;
+import filtros.comandos.ComandoCrearTablas;
 import filtros.comandos.ComandoExtraerCursos;
 import filtros.comandos.ComandoExtraerHorarios;
 import filtros.comandos.ComandoFiltro;
@@ -101,6 +102,7 @@ public class UIController extends UI {
 		this.commands.add(new ComandoContarHorarios());
 		this.commands.add(new ComandoExtraerCursos());
 		this.commands.add(new ComandoExtraerHorarios());
+		this.commands.add(new ComandoCrearTablas());
 	}
 
 	private void populateFilterList() {
