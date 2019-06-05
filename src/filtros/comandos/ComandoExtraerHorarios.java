@@ -16,12 +16,12 @@ public class ComandoExtraerHorarios extends ComandoFiltro {
 	@Override
 	public String ejecutar(Filtros filtro) {
 		ArrayList<Horario> extraerHorarios = filtro.extraerHorarios();
-		GeneradorSQL g = new GeneradorSQL();
 		StringBuilder out = new StringBuilder();
 		
-		out.append(g.comentar("Extracción de horarios"));
+		out.append(GeneradorSQL.comentar("Extracción de horarios"));
+		out.append(GeneradorSQL.comentar(extraerHorarios.size() + " encontrados"));
 		
-		
+		out.append(GeneradorSQL.insertarHorario(extraerHorarios));
 		
 		return out.toString();
 	}

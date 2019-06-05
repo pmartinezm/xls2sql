@@ -109,9 +109,9 @@ public class Filtros implements IFiltros {
 					current = p.getSiguienteColumna(current);
 					for (int hora = 0; hora < HORAS; hora++) {
 						Hora Ehora = new Hora();
+						current = p.getSiguienteFila(current);
 						Asignatura a = new Asignatura(sheet.getRow(current.r).getCell(current.c).toString());
 						Ehora.addAsignatura(a);
-						current = p.getSiguienteFila(current);
 
 						Edia.addHora(Ehora);
 					}
@@ -122,7 +122,7 @@ public class Filtros implements IFiltros {
 			}
 		}
 		System.out.println("Horarios: " + horarios.size());
-		return null;
+		return horarios;
 	}
 
 	@Override

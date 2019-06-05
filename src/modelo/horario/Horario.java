@@ -42,4 +42,22 @@ public class Horario {
 		}
     	
     }
+    
+    public String extraer() {
+    	StringBuilder out = new StringBuilder();
+    	for (Dia dia : dias) {
+			System.out.println("Dia     ");
+			
+			ArrayList<Hora> horas = dia.getHoras();
+			
+			for (Hora hora : horas) {
+				ArrayList<Asignatura> asignaturas = hora.getAsignaturas();
+				
+				for (Asignatura asignatura : asignaturas) {
+					out.append(dia + " - " + hora + " - " + asignatura + "\n");
+				}
+			}
+		}
+    	return out.toString();
+    }
 }
