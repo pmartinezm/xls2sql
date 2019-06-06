@@ -26,7 +26,6 @@ public class ChooseFile implements ActionListener {
 		System.out.println(path);
 
 		this.controller.setFilePath(path);		
-		this.controller.showFilePath();
 		this.controller.processFile();
 	}
 }

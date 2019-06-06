@@ -16,7 +16,6 @@ public class ValidatePath implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.controller.setFilePath();
 		this.controller.processFile();
 	}
 

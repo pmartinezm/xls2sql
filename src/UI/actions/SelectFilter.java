@@ -16,8 +16,10 @@ public class SelectFilter implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent e) {
 		if (this.controller.getListFilter().getSelectedIndex() != -1) {
 			this.controller.setScanButtonEnabled(true);
+			this.controller.setAddActionEnabled(true);
 		} else {
 			this.controller.setScanButtonEnabled(false);
+			this.controller.setAddActionEnabled(false);
 		}
 	}
 

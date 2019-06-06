@@ -11,6 +11,7 @@ import javax.swing.border.LineBorder;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import UI.actions.AddAction;
 import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
 import UI.actions.SelectFilter;
@@ -41,7 +42,7 @@ public class UIController extends UI {
 	public UIController() {
 		this.debug = Debug.getDebug();
 		this.debug.disable();
-		
+
 		this.addListeners();
 		this.createFilterCommands();
 		this.populateFilterList();
@@ -51,17 +52,16 @@ public class UIController extends UI {
 	private void initialState() {
 		this.btnScan.setEnabled(false);
 		this.listFilters.setEnabled(false);
+		this.btnAddAction.setEnabled(false);
+		this.btnRemoveAction.setEnabled(false);
+		this.btnGenerate.setEnabled(false);
 	}
 
 	private void addListeners() {
 		this.btnChooseFile.addActionListener(new ChooseFile(this, this.fileDialog));
-		this.btnValidatePath.addActionListener(new ValidatePath(this));
 		this.btnScan.addActionListener(new ExecuteFilter(this));
 		this.listFilters.addListSelectionListener(new SelectFilter(this));
-	}
-
-	public void showFilePath() {
-		this.txtFilePath.setText(this.filePath);
+		this.btnAddAction.addActionListener(new AddAction(this));
 	}
 
 	public void processFile() {
@@ -69,27 +69,25 @@ public class UIController extends UI {
 		GestorArchivoXLS g = new GestorArchivoXLS(this.filePath);
 
 		if (g.isValido()) {
-			this.setTxtFilePathBorderColor(Colors.ValidPath);
 			this.listFilters.setEnabled(true);
 
 			try {
 				ArrayList<XSSFWorkbook> libros = g.getLibros();
 				this.wb = libros.get(0);
 				this.filtro = new Filtros(wb);
-				info.append("Books: " + libros.size());
+				info.append("Libros: " + libros.size());
 
 				int sheets = 0;
 				for (XSSFWorkbook libro : libros) {
 					sheets += libro.getNumberOfSheets();
 				}
-				info.append(", Sheets: " + sheets);
+				info.append(", Hojas: " + sheets);
 
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			this.setFileInfo(info.toString());
 		} else {
-			this.setTxtFilePathBorderColor(Colors.WrongPath);
 			this.setFileInfo(Messages.InvalidFile.toString());
 			this.listFilters.setEnabled(false);
 			this.btnScan.setEnabled(false);
@@ -109,29 +107,12 @@ public class UIController extends UI {
 
 	private void populateFilterList() {
 		DefaultListModel<ComandoFiltro> listModel = new DefaultListModel<>();
-		
-		for(ComandoFiltro command: this.commands){
+
+		for (ComandoFiltro command : this.commands) {
 			listModel.addElement(command);
 		}
-		
-		this.listFilters.setModel(listModel);
-	}
-
-	private void populateFilterList2() {
-		Method[] filters = Reflex.getFilters();
-		DefaultListModel<String> listModel = new DefaultListModel<>();
-
-		for (Method method : filters) {
-			String name = method.getName();
-			listModel.addElement(name);
-		}
 
 		this.listFilters.setModel(listModel);
-	}
-
-	public void setTxtFilePathBorderColor(Color color) {
-		//this.txtFilePath.setBorder(null);
-		this.txtFilePath.setBorder(new LineBorder(color));
 	}
 
 	public void setFileInfo(String info) {
@@ -141,9 +122,21 @@ public class UIController extends UI {
 	public JList getListFilter() {
 		return this.listFilters;
 	}
+	
+	public JList getListActions() {
+		return this.listActions;
+	}
+	
+	public void refreshListActions() {
+		this.listActions.repaint();
+	}
 
 	public void setScanButtonEnabled(boolean enabled) {
 		this.btnScan.setEnabled(enabled);
+	}
+	
+	public void setAddActionEnabled(boolean enabled) {
+		this.btnAddAction.setEnabled(enabled);
 	}
 
 	/**
@@ -155,13 +148,6 @@ public class UIController extends UI {
 		this.filePath = path;
 	}
 
-	/**
-	 * Gets path from txt and assigns it to the path variable.
-	 */
-	public void setFilePath() {
-		this.filePath = this.txtFilePath.getText();
-	}
-
 	public String getFilePath() {
 		return this.filePath;
 	}
@@ -169,7 +155,7 @@ public class UIController extends UI {
 	public XSSFWorkbook getWorkbook() {
 		return this.wb;
 	}
-	
+
 	public Filtros getFiltro() {
 		return this.filtro;
 	}
