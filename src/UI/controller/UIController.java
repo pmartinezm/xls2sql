@@ -23,7 +23,7 @@ import filtros.comandos.ComandoCrearTablaHorario;
 import filtros.comandos.ComandoExtraerCursos;
 import filtros.comandos.ComandoExtraerHorarios;
 import filtros.comandos.ComandoFiltro;
-import gestor.GestorArchivo;
+import gestor.GestorArchivoXLS;
 import modelo.Colors;
 import modelo.Messages;
 import util.Debug;
@@ -66,7 +66,7 @@ public class UIController extends UI {
 
 	public void processFile() {
 		StringBuilder info = new StringBuilder();
-		GestorArchivo g = new GestorArchivo(this.filePath);
+		GestorArchivoXLS g = new GestorArchivoXLS(this.filePath);
 
 		if (g.isValido()) {
 			this.setTxtFilePathBorderColor(Colors.ValidPath);
