@@ -24,7 +24,7 @@ public class SelectOutput implements ActionListener{
 		this.controller.setOutputPath(path);
 		this.controller.showOutputPath(path);
 		if(path != null) {
-			this.controller.enableGenerateDB();
+			this.controller.setGenerateDBEnabled(true);
 		}
 	}
 

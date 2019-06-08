@@ -16,6 +16,7 @@ import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
 import UI.actions.GenerateDB;
 import UI.actions.RemoveAction;
+import UI.actions.SelectAction;
 import UI.actions.SelectFilter;
 import UI.actions.SelectOutput;
 import UI.actions.ValidatePath;
@@ -58,6 +59,7 @@ public class UIController extends UI {
 		this.listFilters.setEnabled(false);
 		this.btnAddAction.setEnabled(false);
 		this.btnGenerate.setEnabled(false);
+		this.btnRemoveAction.setEnabled(false);
 	}
 
 	private void addListeners() {
@@ -68,6 +70,7 @@ public class UIController extends UI {
 		this.btnRemoveAction.addActionListener(new RemoveAction(this));
 		this.btnGenerate.addActionListener(new GenerateDB(this));
 		this.btnSeleccionarSalida.addActionListener(new SelectOutput(this));
+		this.listActions.addListSelectionListener(new SelectAction(this));
 	}
 
 	public void processFile() {
@@ -183,8 +186,12 @@ public class UIController extends UI {
 		this.lblOutputPath.setText(path);
 	}
 	
-	public void enableGenerateDB() {
-		this.btnGenerate.setEnabled(true);
+	public void setGenerateDBEnabled(boolean enabled) {
+		this.btnGenerate.setEnabled(enabled);
+	}
+	
+	public void setRemoveActionEnabled(boolean enabled) {
+		this.btnRemoveAction.setEnabled(enabled);
 	}
 
 }
