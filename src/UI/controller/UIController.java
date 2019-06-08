@@ -14,7 +14,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import UI.actions.AddAction;
 import UI.actions.ChooseFile;
 import UI.actions.ExecuteFilter;
+import UI.actions.GenerateDB;
+import UI.actions.RemoveAction;
 import UI.actions.SelectFilter;
+import UI.actions.SelectOutput;
 import UI.actions.ValidatePath;
 import filtros.Filtros;
 import filtros.comandos.ComandoContarCursos;
@@ -34,6 +37,7 @@ public class UIController extends UI {
 	private static final long serialVersionUID = 9027661565874661995L;
 
 	private String filePath;
+	private String outputPath;
 	private Debug debug;
 	private XSSFWorkbook wb;
 	private Filtros filtro;
@@ -53,8 +57,8 @@ public class UIController extends UI {
 		this.btnScan.setEnabled(false);
 		this.listFilters.setEnabled(false);
 		this.btnAddAction.setEnabled(false);
-		this.btnRemoveAction.setEnabled(false);
-		this.btnGenerate.setEnabled(false);
+		//this.btnRemoveAction.setEnabled(false);
+		//this.btnGenerate.setEnabled(false);
 	}
 
 	private void addListeners() {
@@ -62,6 +66,9 @@ public class UIController extends UI {
 		this.btnScan.addActionListener(new ExecuteFilter(this));
 		this.listFilters.addListSelectionListener(new SelectFilter(this));
 		this.btnAddAction.addActionListener(new AddAction(this));
+		this.btnRemoveAction.addActionListener(new RemoveAction(this));
+		this.btnGenerate.addActionListener(new GenerateDB(this));
+		this.btnSeleccionarSalida.addActionListener(new SelectOutput(this));
 	}
 
 	public void processFile() {
@@ -163,6 +170,18 @@ public class UIController extends UI {
 	public void setTxtResults(String results) {
 		this.txtPaneResults.setText("");
 		this.txtPaneResults.setText(results);
+	}
+	
+	public String getOutputDBPath() {
+		return this.outputPath;
+	}
+	
+	public void setOutputPath(String path) {
+		this.outputPath = path;
+	}
+	
+	public void showOutputPath(String path) {
+		this.lblOutputPath.setText(path);
 	}
 
 }

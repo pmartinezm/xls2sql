@@ -23,7 +23,6 @@ public class ChooseFile implements ActionListener {
 		String directory = this.fileDialog.getDirectory();
 		String file = this.fileDialog.getFile();
 		String path = directory + file;
-		System.out.println(path);
 
 		this.controller.setFilePath(path);		
 		this.controller.processFile();

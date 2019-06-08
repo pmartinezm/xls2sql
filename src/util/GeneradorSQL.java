@@ -102,9 +102,6 @@ public class GeneradorSQL {
 
 	private static boolean isLastEntry(int currentCurso, int currentDia, int currentHora, int lastCurso, int lastDia,
 			int lastHora) {
-		System.out.println(currentCurso + ", " + currentDia + ", " + currentHora + ", " + lastCurso + ", " + lastDia
-				+ ", " + lastHora + ", " + (currentCurso == lastCurso && currentDia == lastDia
-				&& currentHora == lastHora));
 		return currentCurso == lastCurso && currentDia == lastDia && currentHora == lastHora;
 	}
 }

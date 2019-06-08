@@ -40,8 +40,9 @@ public class UI extends JFrame {
 	protected JScrollPane scrollPane_2;
 	protected JList listActions;
 	protected JLabel lblRutaDeSalida;
-	protected JTextField txtOutput;
 	protected JLabel lblInfo;
+	protected JButton btnSeleccionarSalida;
+	protected JLabel lblOutputPath;
 
 	public UI() {
 		setTitle("xls2sql");
@@ -53,9 +54,9 @@ public class UI extends JFrame {
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(this.contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 20, 0, 0, 0};
+		gbl_contentPane.columnWidths = new int[]{0, 20, 0, 0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 15, 15, 12, 24, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -100,16 +101,22 @@ public class UI extends JFrame {
 		gbc_lblRutaDeSalida.gridy = 2;
 		contentPane.add(lblRutaDeSalida, gbc_lblRutaDeSalida);
 		
-		txtOutput = new JTextField();
-		GridBagConstraints gbc_txtOutput = new GridBagConstraints();
-		gbc_txtOutput.gridwidth = 3;
-		gbc_txtOutput.anchor = GridBagConstraints.NORTH;
-		gbc_txtOutput.insets = new Insets(0, 0, 5, 0);
-		gbc_txtOutput.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtOutput.gridx = 1;
-		gbc_txtOutput.gridy = 2;
-		contentPane.add(txtOutput, gbc_txtOutput);
-		txtOutput.setColumns(10);
+		btnSeleccionarSalida = new JButton("Seleccionar salida");
+		GridBagConstraints gbc_btnSeleccionarSalida = new GridBagConstraints();
+		gbc_btnSeleccionarSalida.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnSeleccionarSalida.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSeleccionarSalida.gridx = 1;
+		gbc_btnSeleccionarSalida.gridy = 2;
+		contentPane.add(btnSeleccionarSalida, gbc_btnSeleccionarSalida);
+		
+		lblOutputPath = new JLabel("");
+		GridBagConstraints gbc_lblOutputPath = new GridBagConstraints();
+		gbc_lblOutputPath.anchor = GridBagConstraints.WEST;
+		gbc_lblOutputPath.gridwidth = 3;
+		gbc_lblOutputPath.insets = new Insets(0, 0, 5, 5);
+		gbc_lblOutputPath.gridx = 2;
+		gbc_lblOutputPath.gridy = 2;
+		contentPane.add(lblOutputPath, gbc_lblOutputPath);
 		
 		lblSelectAFilter = new JLabel("Seleccione un filtro o configure un script");
 		GridBagConstraints gbc_lblSelectAFilter = new GridBagConstraints();
@@ -131,6 +138,7 @@ public class UI extends JFrame {
 		
 		scrollPane_2 = new JScrollPane();
 		GridBagConstraints gbc_scrollPane_2 = new GridBagConstraints();
+		gbc_scrollPane_2.gridwidth = 2;
 		gbc_scrollPane_2.gridheight = 4;
 		gbc_scrollPane_2.insets = new Insets(0, 0, 5, 0);
 		gbc_scrollPane_2.fill = GridBagConstraints.BOTH;
@@ -184,7 +192,7 @@ public class UI extends JFrame {
 		
 		scrollPane_1 = new JScrollPane();
 		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
-		gbc_scrollPane_1.gridwidth = 4;
+		gbc_scrollPane_1.gridwidth = 5;
 		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
 		gbc_scrollPane_1.gridx = 0;
 		gbc_scrollPane_1.gridy = 9;

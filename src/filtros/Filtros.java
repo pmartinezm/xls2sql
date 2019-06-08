@@ -13,9 +13,11 @@ import modelo.horario.Asignatura;
 import modelo.horario.Dia;
 import modelo.horario.Hora;
 import modelo.horario.Horario;
+import util.Debug;
 
 public class Filtros implements IFiltros {
 	private XSSFWorkbook wb;
+	private Debug d = Debug.getDebug();
 
 	public Filtros() {
 
@@ -41,7 +43,7 @@ public class Filtros implements IFiltros {
 			}
 		}
 
-		System.out.println("Encontrados " + counter + " horarios.");
+		this.d.write("Encontrados " + counter + " horarios.");
 		return counter;
 	}
 
@@ -102,7 +104,6 @@ public class Filtros implements IFiltros {
 
 			if (buscar != null) {
 				Coordenada current = buscar;
-				System.out.println(current);
 				Horario Ehorario = new Horario("");
 				for (int dia = 0; dia < DIAS; dia++) {
 					Dia Edia = new Dia();
@@ -121,7 +122,6 @@ public class Filtros implements IFiltros {
 				horarios.add(Ehorario);
 			}
 		}
-		System.out.println("Horarios: " + horarios.size());
 		return horarios;
 	}
 

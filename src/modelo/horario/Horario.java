@@ -46,7 +46,6 @@ public class Horario {
     public String extraer() {
     	StringBuilder out = new StringBuilder();
     	for (Dia dia : dias) {
-			System.out.println("Dia     ");
 			
 			ArrayList<Hora> horas = dia.getHoras();
 			

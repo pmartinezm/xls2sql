@@ -16,7 +16,7 @@ public class DBController {
 	private Connection connection;
 	Debug d = Debug.getDebug();
 
-	public DBController(String path) throws SQLException {
+	public DBController(String path) {
 		this.path = path;
 		this.url = this.base + this.path;
 		checkFile();
@@ -47,6 +47,8 @@ public class DBController {
 			s.execute(query);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			closeConnection();
 		}
 	}
 
@@ -56,13 +58,12 @@ public class DBController {
 	}
 
 	private void getConnection() {
-		if (this.connection == null) {
-			try {
-				this.connection = DriverManager.getConnection(this.url);
-				this.d.write("JDBC connection: ok.");
-			} catch (SQLException e) {
-				d.error("JDBC connection: error.");
-			}
+		try {
+			this.connection = DriverManager.getConnection(this.url);
+			this.d.write("JDBC connection: ok.");
+
+		} catch (SQLException e) {
+			d.error("JDBC connection: error.");
 		}
 	}
 
@@ -75,17 +76,6 @@ public class DBController {
 				this.d.error("Error closing connection.");
 				e.printStackTrace();
 			}
-		}
-	}
-
-	public static void main(String[] args) {
-		Debug.getDebug().enable();
-		try {
-			DBController c = new DBController("C:/Users/Pablo/Desktop/xls2sql.db");
-			c.sendQuery(
-					"create table if not exists curso (id integer primary key autoincrement not null, nombre varchar not null default 'sin asignar')");
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 	}
 }
