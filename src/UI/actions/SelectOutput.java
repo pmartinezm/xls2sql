@@ -23,6 +23,9 @@ public class SelectOutput implements ActionListener{
 		String path = directory + file;
 		this.controller.setOutputPath(path);
 		this.controller.showOutputPath(path);
+		if(path != null) {
+			this.controller.enableGenerateDB();
+		}
 	}
 
 }

@@ -57,8 +57,7 @@ public class UIController extends UI {
 		this.btnScan.setEnabled(false);
 		this.listFilters.setEnabled(false);
 		this.btnAddAction.setEnabled(false);
-		//this.btnRemoveAction.setEnabled(false);
-		//this.btnGenerate.setEnabled(false);
+		this.btnGenerate.setEnabled(false);
 	}
 
 	private void addListeners() {
@@ -182,6 +181,10 @@ public class UIController extends UI {
 	
 	public void showOutputPath(String path) {
 		this.lblOutputPath.setText(path);
+	}
+	
+	public void enableGenerateDB() {
+		this.btnGenerate.setEnabled(true);
 	}
 
 }

@@ -43,6 +43,7 @@ public class UI extends JFrame {
 	protected JLabel lblInfo;
 	protected JButton btnSeleccionarSalida;
 	protected JLabel lblOutputPath;
+	private JLabel lblScript;
 
 	public UI() {
 		setTitle("xls2sql");
@@ -113,7 +114,7 @@ public class UI extends JFrame {
 		GridBagConstraints gbc_lblOutputPath = new GridBagConstraints();
 		gbc_lblOutputPath.anchor = GridBagConstraints.WEST;
 		gbc_lblOutputPath.gridwidth = 3;
-		gbc_lblOutputPath.insets = new Insets(0, 0, 5, 5);
+		gbc_lblOutputPath.insets = new Insets(0, 0, 5, 0);
 		gbc_lblOutputPath.gridx = 2;
 		gbc_lblOutputPath.gridy = 2;
 		contentPane.add(lblOutputPath, gbc_lblOutputPath);
@@ -126,6 +127,14 @@ public class UI extends JFrame {
 		gbc_lblSelectAFilter.gridx = 0;
 		gbc_lblSelectAFilter.gridy = 4;
 		contentPane.add(lblSelectAFilter, gbc_lblSelectAFilter);
+		
+		lblScript = new JLabel("Script");
+		GridBagConstraints gbc_lblScript = new GridBagConstraints();
+		gbc_lblScript.anchor = GridBagConstraints.WEST;
+		gbc_lblScript.insets = new Insets(0, 0, 5, 5);
+		gbc_lblScript.gridx = 3;
+		gbc_lblScript.gridy = 4;
+		contentPane.add(lblScript, gbc_lblScript);
 		
 		btnScan = new JButton("Generar SQL");
 		GridBagConstraints gbc_btnScan = new GridBagConstraints();
