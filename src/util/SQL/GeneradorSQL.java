@@ -1,4 +1,4 @@
-package util;
+package util.SQL;
 
 import java.util.ArrayList;
 
@@ -8,10 +8,6 @@ import modelo.horario.Hora;
 import modelo.horario.Horario;
 
 public class GeneradorSQL {
-	public void crearTabla() {
-
-	}
-
 	public static String comentar(String msg) {
 		return "/* " + msg + " */\n";
 	}
@@ -27,6 +23,10 @@ public class GeneradorSQL {
 		sql.append(")");
 
 		return sql.toString();
+	}
+	
+	public static String crearTablaDia() {
+		return "CREATE TABLE 'dia' ('id' INT(11) NOT NULL AUTO_INCREMENT, 'nombre' VARCHAR(50));";
 	}
 
 	public static String insertarCurso(String nombre) {

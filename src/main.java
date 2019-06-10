@@ -1,48 +1,31 @@
-import java.io.IOException;
-import java.util.ArrayList;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import controller.Buscador;
-import controller.Posicionador;
-import gestor.GestorArchivoXLS;
-import modelo.Coordenada;
-import util.Debug;
-import util.GeneradorSQL;
+import java.awt.EventQueue;
+
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import UI.controller.UIController;
 
 public class main {
-
-    public static void main(String[] args) throws IOException {
-        Debug debug = Debug.getDebug();
-        //debug.disable();
-        GestorArchivoXLS gestor = new GestorArchivoXLS("C:\fichero.xls");
-        XSSFWorkbook libro = gestor.getLibros().get(0);
-
-        int sheets = libro.getNumberOfSheets();
-
-        ArrayList<String> a = new ArrayList<>();
-        for (int i = 0; i < sheets; i++) {
-            XSSFSheet sheet = libro.getSheetAt(i);
-            debug.write("Nombre de la hoja: " + sheet.getSheetName());
-
-            Buscador buscador = new Buscador(sheet);
-            Coordenada coordenada = buscador.buscar("Enseñanza:", 5);
-
-            if (coordenada != null) {
-                Posicionador posicionador = new Posicionador(sheet);
-                int col = posicionador.getSiguienteColumna(coordenada.r, coordenada.c);
-
-                XSSFCell cell = sheet.getRow(coordenada.r).getCell(col);
-                debug.write("Coordenada: " + coordenada);
-                debug.write("Col: " + col);
-                debug.write("[r:c] " + coordenada.r + "-" + col);
-                debug.write("Contenido de la celda: " + cell.toString());
-                a.add(cell.toString());
-            }
-        }
-
-        debug.writeIgnoreAnon("SQL: " + GeneradorSQL.insertarCurso(a));
-    }
+	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+				| UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIController frame = new UIController();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }

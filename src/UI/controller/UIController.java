@@ -20,6 +20,7 @@ import UI.actions.SelectAction;
 import UI.actions.SelectFilter;
 import UI.actions.SelectOutput;
 import UI.actions.ValidatePath;
+import UI.view.UI;
 import filtros.Filtros;
 import filtros.comandos.ComandoContarCursos;
 import filtros.comandos.ComandoContarHorarios;

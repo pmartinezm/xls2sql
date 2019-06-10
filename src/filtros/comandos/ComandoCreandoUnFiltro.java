@@ -1,7 +1,7 @@
 package filtros.comandos;
 
 import filtros.Filtros;
-import util.GeneradorSQL;
+import util.SQL.GeneradorSQL;
 
 public class ComandoCreandoUnFiltro extends ComandoFiltro {
 	

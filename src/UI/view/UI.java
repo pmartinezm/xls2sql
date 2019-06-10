@@ -1,4 +1,4 @@
-package UI.controller;
+package UI.view;
 
 import java.awt.Color;
 import java.awt.FileDialog;

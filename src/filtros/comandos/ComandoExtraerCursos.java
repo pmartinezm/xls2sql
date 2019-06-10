@@ -3,7 +3,7 @@ package filtros.comandos;
 import java.util.ArrayList;
 
 import filtros.Filtros;
-import util.GeneradorSQL;
+import util.SQL.GeneradorSQL;
 
 public class ComandoExtraerCursos extends ComandoFiltro {
 

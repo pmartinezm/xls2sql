@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import filtros.Filtros;
 import modelo.horario.Horario;
-import util.GeneradorSQL;
+import util.SQL.GeneradorSQL;
 
 public class ComandoExtraerHorarios extends ComandoFiltro {
 
