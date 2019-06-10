@@ -12,21 +12,83 @@ public class GeneradorSQL {
 		return "/* " + msg + " */\n";
 	}
 
-	public static String crearTablaCursos() {
+	public static String crearTablaDia() {
 		StringBuilder sql = new StringBuilder();
+		sql.append("create table 'dia' (");
 
-		sql.append("create table if not exists curso (");
+		sql.append("'id' integer primary key autoincrement,");
+		sql.append("'nombre' VARCHAR(50)");
 
-		sql.append("id integer primary key autoincrement not null, ");
-		sql.append("nombre varchar not null default 'sin asignar'");
-
-		sql.append(")");
+		sql.append(");");
 
 		return sql.toString();
 	}
+
+	public static String insertarDia(ArrayList<String> dias) {
+		StringBuilder out = new StringBuilder();
+		int last = dias.size();
+		
+		out.append("insert into dia (nombre) values ('");
+		
+		int c = 0;
+		for (String dia : dias) {
+			out.append(dia);
+			
+			if(c != last) {
+				out.append("'), ('");
+			}
+		}
+		
+		out.append("');");
+		
+		return out.toString();
+	}
 	
-	public static String crearTablaDia() {
-		return "CREATE TABLE 'dia' ('id' INT(11) NOT NULL AUTO_INCREMENT, 'nombre' VARCHAR(50));";
+	public static String crearTablaHora() {
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("create table 'hora' (");
+
+		sql.append("'id' integer primary key autoincrement,");
+		sql.append("'tramo' VARCHAR(50)");
+
+		sql.append(");");
+		
+		return sql.toString();
+	}
+	
+	public static String insertarHora(ArrayList<String> horas) {
+		StringBuilder out = new StringBuilder();
+		int last = horas.size();
+		
+		out.append("insert into hora (tramo) values ('");
+		
+		int c = 0;
+		for (String hora : horas) {
+			out.append(hora);
+			
+			if(c != last) {
+				out.append("'), ('");
+			}
+		}
+		
+		out.append("');");
+		
+		return out.toString();
+	}
+
+	public static String crearTablaHorario() {
+		StringBuilder sql = new StringBuilder();
+		sql.append("CREATE TABLE horario (");
+
+		sql.append("idDia INTEGER, ");
+		sql.append("idHora INTEGER, ");
+		sql.append("idCurso INTEGER, ");
+		sql.append("asignatura VARCHAR (100)");
+
+		sql.append(");");
+
+		return sql.toString();
 	}
 
 	public static String insertarCurso(String nombre) {
@@ -58,16 +120,15 @@ public class GeneradorSQL {
 		return sql.toString();
 	}
 
-	public static String crearTablaHorario() {
+	public static String crearTablaCursos() {
 		StringBuilder sql = new StringBuilder();
-		sql.append("CREATE TABLE horario (");
 
-		sql.append("idDia INTEGER (11),");
-		sql.append(" idHora INTEGER (11),");
-		sql.append("idCurso INTEGER (11),");
-		sql.append("asignatura VARCHAR (100)");
+		sql.append("create table if not exists curso (");
 
-		sql.append(");");
+		sql.append("id integer primary key autoincrement not null, ");
+		sql.append("nombre varchar not null default 'sin asignar'");
+
+		sql.append(")");
 
 		return sql.toString();
 	}

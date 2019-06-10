@@ -25,10 +25,14 @@ import filtros.Filtros;
 import filtros.comandos.ComandoContarCursos;
 import filtros.comandos.ComandoContarHorarios;
 import filtros.comandos.ComandoCrearTablaCurso;
+import filtros.comandos.ComandoCrearTablaDia;
+import filtros.comandos.ComandoCrearTablaHora;
 import filtros.comandos.ComandoCrearTablaHorario;
 import filtros.comandos.ComandoExtraerCursos;
 import filtros.comandos.ComandoExtraerHorarios;
 import filtros.comandos.ComandoFiltro;
+import filtros.comandos.ComandoInsertarDias;
+import filtros.comandos.ComandoInsertarHoras;
 import gestor.GestorArchivoXLS;
 import modelo.Colors;
 import modelo.Messages;
@@ -107,12 +111,14 @@ public class UIController extends UI {
 	private void createFilterCommands() {
 		this.commands = new ArrayList<>();
 
-		this.commands.add(new ComandoContarCursos());
-		this.commands.add(new ComandoContarHorarios());
-		this.commands.add(new ComandoExtraerCursos());
-		this.commands.add(new ComandoExtraerHorarios());
 		this.commands.add(new ComandoCrearTablaCurso());
 		this.commands.add(new ComandoCrearTablaHorario());
+		this.commands.add(new ComandoCrearTablaDia());
+		this.commands.add(new ComandoCrearTablaHora());
+		this.commands.add(new ComandoInsertarDias());
+		this.commands.add(new ComandoInsertarHoras());
+		this.commands.add(new ComandoExtraerHorarios());
+		this.commands.add(new ComandoExtraerCursos());
 	}
 
 	private void populateFilterList() {
