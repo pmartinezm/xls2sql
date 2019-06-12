@@ -1,4 +1,4 @@
-package controller.filtros.comandos;
+package controller.comandos;
 
 import java.util.ArrayList;
 

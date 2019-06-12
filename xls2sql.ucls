@@ -37,8 +37,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="controller.filtros.comandos.ComandoExtraerHorarios" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoExtraerHorarios.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="controller.comandos.ComandoExtraerHorarios" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoExtraerHorarios.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="372" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="controller.filtros.comandos.ComandoCrearTablaDia" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoCrearTablaDia.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="controller.comandos.ComandoCrearTablaDia" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoCrearTablaDia.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="576" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="controller.filtros.comandos.ComandoExtraerCursos" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoExtraerCursos.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="controller.comandos.ComandoExtraerCursos" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoExtraerCursos.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="775" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -64,8 +64,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="controller.filtros.comandos.ComandoCrearTablaCurso" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoCrearTablaCurso.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="controller.comandos.ComandoCrearTablaCurso" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoCrearTablaCurso.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="983" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -73,8 +73,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="controller.filtros.comandos.ComandoInsertarDias" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoInsertarDias.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="controller.comandos.ComandoInsertarDias" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoInsertarDias.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1184" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -82,8 +82,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="controller.filtros.comandos.ComandoInsertarHoras" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoInsertarHoras.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="controller.comandos.ComandoInsertarHoras" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoInsertarHoras.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1376" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="controller.filtros.comandos.ComandoFiltro" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoFiltro.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="11" language="java" name="controller.comandos.ComandoFiltro" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoFiltro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1164" y="796"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -100,8 +100,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="controller.filtros.comandos.ComandoCrearTablaHora" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoCrearTablaHora.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="controller.comandos.ComandoCrearTablaHora" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoCrearTablaHora.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1578" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -109,8 +109,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="controller.filtros.comandos.ComandoCrearTablaHorario" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoCrearTablaHorario.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="controller.comandos.ComandoCrearTablaHorario" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoCrearTablaHorario.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1793" y="944"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -118,8 +118,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="controller.filtros.comandos.ComandoCreandoUnFiltro" project="xls2sql" 
-    file="/xls2sql/src/controller/filtros/comandos/ComandoCreandoUnFiltro.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="14" language="java" name="controller.comandos.ComandoCreandoUnFiltro" project="xls2sql" 
+    file="/xls2sql/src/controller/comandos/ComandoCreandoUnFiltro.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="99" width="169" x="2260" y="897"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

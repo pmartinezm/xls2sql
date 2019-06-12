@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.ListModel;
 
 import UI.controller.UIController;
+import controller.comandos.ComandoFiltro;
 import controller.database.DBController;
 import controller.filtros.Filtros;
-import controller.filtros.comandos.ComandoFiltro;
 
 /**
  * Ejecuta las acciones de la lista de acciones (script) y genera la base de datos

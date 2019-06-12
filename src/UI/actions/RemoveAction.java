@@ -7,7 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
 import UI.controller.UIController;
-import controller.filtros.comandos.ComandoFiltro;
+import controller.comandos.ComandoFiltro;
 
 /**
  * Elimina una acción de la lista de acciones (script)

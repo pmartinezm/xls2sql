@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JList;
 
 import UI.controller.UIController;
-import controller.filtros.comandos.ComandoFiltro;
+import controller.comandos.ComandoFiltro;
 
 /**
  * Ejecuta el filtro seleccionado

@@ -1,4 +1,4 @@
-package controller.filtros.comandos;
+package controller.comandos;
 
 import controller.filtros.Filtros;
 import util.SQL.GeneradorSQL;
