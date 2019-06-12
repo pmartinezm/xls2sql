@@ -1,4 +1,4 @@
-package interfaces;
+package controller.interfaces;
 
 import java.util.ArrayList;
 

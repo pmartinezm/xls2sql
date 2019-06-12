@@ -1,8 +1,8 @@
-package filtros.comandos;
+package controller.filtros.comandos;
 
 import java.util.ArrayList;
 
-import filtros.Filtros;
+import controller.filtros.Filtros;
 import util.SQL.GeneradorSQL;
 
 public class ComandoExtraerCursos extends ComandoFiltro {

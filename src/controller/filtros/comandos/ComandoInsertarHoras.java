@@ -1,8 +1,8 @@
-package filtros.comandos;
+package controller.filtros.comandos;
 
 import java.util.ArrayList;
 
-import filtros.Filtros;
+import controller.filtros.Filtros;
 import modelo.horario.Horario;
 import util.SQL.GeneradorSQL;
 

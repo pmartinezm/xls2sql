@@ -2,7 +2,7 @@ package util;
 
 import java.lang.reflect.Method;
 
-import interfaces.IFiltros;
+import controller.interfaces.IFiltros;
 
 public class Reflex {
 	public static Method[] getFilters() {

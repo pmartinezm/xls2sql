@@ -7,7 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
 import UI.controller.UIController;
-import filtros.comandos.ComandoFiltro;
+import controller.filtros.comandos.ComandoFiltro;
 
 /**
  * Añadir una acción a la lista de acciones (script)

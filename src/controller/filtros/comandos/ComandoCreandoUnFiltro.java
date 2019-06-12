@@ -1,6 +1,6 @@
-package filtros.comandos;
+package controller.filtros.comandos;
 
-import filtros.Filtros;
+import controller.filtros.Filtros;
 import util.SQL.GeneradorSQL;
 
 public class ComandoCreandoUnFiltro extends ComandoFiltro {

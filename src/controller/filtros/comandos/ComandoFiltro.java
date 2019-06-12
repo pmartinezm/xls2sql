@@ -1,6 +1,6 @@
-package filtros.comandos;
+package controller.filtros.comandos;
 
-import interfaces.IComandoFiltro;
+import controller.interfaces.IComandoFiltro;
 
 /**
  * Elementos de la lista de filtros

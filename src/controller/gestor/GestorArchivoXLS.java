@@ -1,4 +1,4 @@
-package gestor;
+package controller.gestor;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,13 +1,13 @@
-package filtros;
+package controller.filtros;
 
 import java.util.ArrayList;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import controller.Buscador;
-import controller.Posicionador;
-import interfaces.IFiltros;
+import controller.interfaces.IFiltros;
+import controller.movimiento.Buscador;
+import controller.movimiento.Posicionador;
 import modelo.Coordenada;
 import modelo.horario.Asignatura;
 import modelo.horario.Dia;
