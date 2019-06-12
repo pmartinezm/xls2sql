@@ -1,14 +1,10 @@
 package UI.controller;
 
-import java.awt.Color;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.border.LineBorder;
-
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import UI.actions.AddAction;
@@ -31,10 +27,8 @@ import controller.comandos.ComandoInsertarDias;
 import controller.comandos.ComandoInsertarHoras;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
-import modelo.Colors;
-import modelo.Messages;
+import modelo.application.Messages;
 import util.Debug;
-import util.Reflex;
 
 public class UIController extends UI {
 	private static final long serialVersionUID = 9027661565874661995L;

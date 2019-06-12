@@ -163,8 +163,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <enumeration id="19" language="java" name="modelo.Messages" project="xls2sql" file="/xls2sql/src/modelo/Messages.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <enumeration id="19" language="java" name="modelo.application.Messages" project="xls2sql" 
+    file="/xls2sql/src/modelo/application/Messages.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="194" y="1257"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -181,8 +181,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="modelo.Colors" project="xls2sql" file="/xls2sql/src/modelo/Colors.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
+  <class id="21" language="java" name="modelo.application.Colors" project="xls2sql" 
+    file="/xls2sql/src/modelo/application/Colors.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="538" y="1248"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

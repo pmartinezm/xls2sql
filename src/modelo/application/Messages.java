@@ -1,4 +1,4 @@
-package modelo;
+package modelo.application;
 
 public enum Messages {
 	InvalidFile("El fichero no cumple los requisitos o está dañado.");

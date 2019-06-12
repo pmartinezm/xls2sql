@@ -1,4 +1,4 @@
-package modelo;
+package modelo.application;
 
 import java.awt.Color;
 
