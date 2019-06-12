@@ -50,11 +50,21 @@ public class GestorArchivoXLS {
 		}
 	}
 
+	/**
+	 * Obtiene la extensión del archivo.
+	 * @param nombreArchivo
+	 * @return
+	 */
 	private String extraerExtension(String nombreArchivo) {
 		int punto = nombreArchivo.lastIndexOf(".");
 		return nombreArchivo.substring(punto + 1);
 	}
 
+	/**
+	 * Comprueba que el nombre del archivo contiene el carácter punto (.)
+	 * @param nombreArchivo
+	 * @return
+	 */
 	private boolean filtrarExtension(String nombreArchivo) {
 		if (!nombreArchivo.contains(".")) {
 			return false;
@@ -85,6 +95,10 @@ public class GestorArchivoXLS {
 		return libros;
 	}
 
+	/**
+	 * Comprueba que se ha encontrado al menos un archivo.
+	 * @return
+	 */
 	public boolean isValido() {
 		return this.archivos.size() > 0;
 	}

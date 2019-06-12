@@ -10,6 +10,11 @@ import controller.DBController;
 import filtros.Filtros;
 import filtros.comandos.ComandoFiltro;
 
+/**
+ * Ejecuta las acciones de la lista de acciones (script) y genera la base de datos
+ * @author pmartinezmar
+ *
+ */
 public class GenerateDB implements ActionListener {
 	private UIController controller;
 	

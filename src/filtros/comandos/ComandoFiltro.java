@@ -10,11 +10,6 @@ import interfaces.IComandoFiltro;
  */
 public abstract class ComandoFiltro implements IComandoFiltro {
 	protected String nombre;
-	protected String resultados;
-
-	public String getResultados() {
-		return this.resultados;
-	}
 
 	@Override
 	public String toString() {

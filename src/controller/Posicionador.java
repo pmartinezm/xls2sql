@@ -25,33 +25,37 @@ public class Posicionador {
 	 * @return la siguiente fila.
 	 */
 	public int getSiguienteFila(int r, int c) {
-		this.debug.title("GetSiguienteFila");
+		this.debug.title("Obtener siguiente fila (getSiguienteFila)");
 		int max = this.sheet.getLastRowNum();
-		this.debug.write("Max: " + max);
+		this.debug.entry("Max: " + max);
 		r++;
 		while (r <= max) {
 			this.debug.write("R: " + r + ". R <= Max?: " + (r<=max));
 			Row row = this.sheet.getRow(r);
 			if (row == null) {
-				this.debug.write("Row null. Incrementing R.");
+				this.debug.entry("Fila es null. Incrementando r.");
 				r++;
 			} else {
-				this.debug.write("Row not null. Getting cell.");
+				this.debug.entry("Fila no null. Obteniendo celda.");
 				Cell cell = row.getCell(c);
 				if (cell != null) {
-					this.debug.write("Cell not null. Returning R.");
+					this.debug.entry("Celda no null. Retornando r.");
 					return r;
 				} else {
-					this.debug.write("Cell null. Incrementing R.");
+					this.debug.entry("Celda null. Incrementando r.");
 					r++;
 				}
 			}
 		}
-		this.debug.write("R <= Max. Returning -1.");
-		this.debug.title("End of GetSiguienteFila");
+		this.debug.entry("R <= Max. Retornando -1.");
 		return -1;
 	}
 
+	/**
+	 * Obtiene la siguiente fila no vacía según la posición actual.
+	 * @param coordenadas
+	 * @return coordenadas de la siguiente fila
+	 */
 	public Coordenada getSiguienteFila(Coordenada coordenadas) {
 		int r = this.getSiguienteFila(coordenadas.r, coordenadas.c);
 		return new Coordenada(r, coordenadas.c);
@@ -88,6 +92,11 @@ public class Posicionador {
 		return -1;
 	}
 
+	/**
+	 * Obtiene la siguiente columna no vacía según la posición actual.
+	 * @param coordenadas
+	 * @return coordenadas de la siguiente columna
+	 */
 	public Coordenada getSiguienteColumna(Coordenada coordenadas) {
 		int c = this.getSiguienteColumna(coordenadas.r, coordenadas.c);
 		return new Coordenada(coordenadas.r, c);

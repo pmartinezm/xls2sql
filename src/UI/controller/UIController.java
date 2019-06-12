@@ -59,6 +59,9 @@ public class UIController extends UI {
 		this.initialState();
 	}
 
+	/**
+	 * Estado inicial de los botones
+	 */
 	private void initialState() {
 		this.btnScan.setEnabled(false);
 		this.listFilters.setEnabled(false);
@@ -67,6 +70,9 @@ public class UIController extends UI {
 		this.btnRemoveAction.setEnabled(false);
 	}
 
+	/**
+	 * Añadir listeners a los componentes
+	 */
 	private void addListeners() {
 		this.btnChooseFile.addActionListener(new ChooseFile(this, this.fileDialog));
 		this.btnScan.addActionListener(new ExecuteFilter(this));
@@ -78,6 +84,9 @@ public class UIController extends UI {
 		this.listActions.addListSelectionListener(new SelectAction(this));
 	}
 
+	/**
+	 * Procesar el fichero seleccionado.
+	 */
 	public void processFile() {
 		StringBuilder info = new StringBuilder();
 		GestorArchivoXLS g = new GestorArchivoXLS(this.filePath);
@@ -108,6 +117,9 @@ public class UIController extends UI {
 		}
 	}
 
+	/**
+	 * Crea los filtros de la lista de filtros
+	 */
 	private void createFilterCommands() {
 		this.commands = new ArrayList<>();
 
@@ -121,6 +133,9 @@ public class UIController extends UI {
 		this.commands.add(new ComandoExtraerCursos());
 	}
 
+	/**
+	 * Añade los filtros a la lista de filtros
+	 */
 	private void populateFilterList() {
 		DefaultListModel<ComandoFiltro> listModel = new DefaultListModel<>();
 
@@ -155,11 +170,6 @@ public class UIController extends UI {
 		this.btnAddAction.setEnabled(enabled);
 	}
 
-	/**
-	 * Sets file path
-	 * 
-	 * @param path
-	 */
 	public void setFilePath(String path) {
 		this.filePath = path;
 	}

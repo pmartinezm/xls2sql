@@ -23,57 +23,75 @@ public class DBController {
 		testConnection();
 	}
 
+	/**
+	 * Comprueba si el fichero de salida para la base de datos de SQLite (*.db)
+	 * existe. Si no existe, intentará crearlo.
+	 */
 	private void checkFile() {
 		File file = new File(this.path);
 		if (!file.exists()) {
-			this.d.write("DB file not found. Atempting to create it...");
+			this.d.write("Arhivo de DB no encontrado. Intentando crearlo...");
 			try {
 				if (file.createNewFile()) {
-					this.d.write("DB file created.");
+					this.d.write("Archivo de DB creado");
 				}
 			} catch (IOException e) {
-				this.d.error("Error creating DB file.");
+				this.d.error("Error creando el archivo de BD");
 				e.printStackTrace();
 			}
 		} else {
-			this.d.write("DB file found.");
+			this.d.write("Archivo de BD encontrado");
 		}
 	}
 
+	/**
+	 * Envía una query a la base de datos.
+	 * @param query
+	 */
 	public void sendQuery(String query) {
 		try {
 			getConnection();
 			Statement s = this.connection.createStatement();
 			s.execute(query);
 		} catch (SQLException e) {
+			this.d.error("Error de SQL.");
 			e.printStackTrace();
 		} finally {
 			closeConnection();
 		}
 	}
 
+	/**
+	 * Comprueba la conexión con la base de datos.
+	 */
 	private void testConnection() {
-		this.d.write("Testing connection " + this.url);
+		this.d.write("Probando la conexión: " + this.url);
 		getConnection();
 	}
 
+	/**
+	 * Obtiene la conexión con la base de datos.
+	 */
 	private void getConnection() {
 		try {
 			this.connection = DriverManager.getConnection(this.url);
-			this.d.write("JDBC connection: ok.");
+			this.d.write("Conexión JDBC: ok.");
 
 		} catch (SQLException e) {
-			d.error("JDBC connection: error.");
+			d.error("Conexión JDBC: error");
 		}
 	}
 
+	/**
+	 * Cierra la conexión con la base de datos.
+	 */
 	private void closeConnection() {
 		if (this.connection != null) {
 			try {
 				this.connection.close();
-				this.d.write("Connection closed.");
+				this.d.write("Conexión cerrada");
 			} catch (SQLException e) {
-				this.d.error("Error closing connection.");
+				this.d.error("Error al cerrar la conexión");
 				e.printStackTrace();
 			}
 		}

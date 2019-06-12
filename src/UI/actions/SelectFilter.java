@@ -5,6 +5,11 @@ import javax.swing.event.ListSelectionListener;
 
 import UI.controller.UIController;
 
+/**
+ * A la escucha de selección de una acción de la lista de filtros para el comportamiento de los botones.
+ * @author pmartinezmar
+ *
+ */
 public class SelectFilter implements ListSelectionListener {
 	private UIController controller;
 

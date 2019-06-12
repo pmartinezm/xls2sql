@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 
 import UI.controller.UIController;
 
+/**
+ * Abre una ventana para seleccionar la ruta de salida de la base de datos
+ * @author pmartinezmar
+ *
+ */
 public class SelectOutput implements ActionListener{
 	private UIController controller;
 	

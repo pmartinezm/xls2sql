@@ -9,6 +9,11 @@ import javax.swing.ListModel;
 import UI.controller.UIController;
 import filtros.comandos.ComandoFiltro;
 
+/**
+ * Elimina una acción de la lista de acciones (script)
+ * @author pmartinezmar
+ *
+ */
 public class RemoveAction implements ActionListener {
 
 	private UIController controller;

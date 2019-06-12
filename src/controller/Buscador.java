@@ -25,6 +25,7 @@ public class Buscador {
 	 * @return las coordenadas de la coincidencia, null si no se ha encontrado.
 	 */
 	public Coordenada buscar(String texto, int rango) {
+		this.debug.title("Buscando '" + texto + "' dentro del rango " + rango);
 		for (int c = 0; c < rango; c++) {
 			for (int r = 0; r < rango; r++) {
 				Row fila = this.sheet.getRow(r);
@@ -34,14 +35,14 @@ public class Buscador {
 						String valor = celda.toString();
 
 						if (valor.equalsIgnoreCase(texto)) {
-							this.debug.write("Encontrado en " + r + "-" + c);
+							this.debug.entry("Encontrado en " + r + "-" + c);
 							return new Coordenada(r, c);
 						}
 					}
 				}
 			}
 		}
-		this.debug.error("No se ha encontrado '" + texto + "'");
+		this.debug.entryError("No se ha encontrado '" + texto + "'");
 		return null;
 	}
 }

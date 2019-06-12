@@ -8,6 +8,11 @@ import javax.swing.JList;
 import UI.controller.UIController;
 import filtros.comandos.ComandoFiltro;
 
+/**
+ * Ejecuta el filtro seleccionado
+ * @author pmartinezmar
+ *
+ */
 public class ExecuteFilter implements ActionListener {
 	private UIController controller;
 

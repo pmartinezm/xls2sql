@@ -9,6 +9,11 @@ import javax.swing.ListModel;
 import UI.controller.UIController;
 import filtros.comandos.ComandoFiltro;
 
+/**
+ * Añadir una acción a la lista de acciones (script)
+ * @author pmartinezmar
+ *
+ */
 public class AddAction implements ActionListener {
 	private UIController controller;
 

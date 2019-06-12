@@ -6,6 +6,11 @@ import java.awt.event.ActionListener;
 
 import UI.controller.UIController;
 
+/**
+ * Seleccionar un fichero para filtrar su información
+ * @author pmartinezmar
+ *
+ */
 public class ChooseFile implements ActionListener {
 	private FileDialog fileDialog;
 	private UIController controller;

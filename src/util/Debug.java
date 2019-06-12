@@ -5,38 +5,40 @@ public class Debug {
     private boolean enabled = true;
 
     /**
-     * Writes a message in console with the structure: [Debug] msg.
+     * Escribe un mensaje en la consola con la estructura: [Debug] msg.
      */
     public void write(Object msg) {
         this.consoleLog("[Debug] " + msg);
     }
 
     /**
-     * Writes a red message in console with the structure: [Error] msg.
+     * Escribe un mensaje de error en la consola con la estructura: [Error] msg.
      */
     public void error(Object msg) {
         this.consoleError("[Error] " + msg);
     }
 
     /**
-     * Writes a message in console with the structure: [Degub] -- msg --.
+     * Escribe un mensaje en la consola con la estructura: [Degub] -- msg --.
      */
     public void title(Object msg) {
         this.consoleLog("[Debug] -- " + msg + " --");
     }
-
+    
     /**
-     * Writes a message in console with the structure: [Debug] msg (ignored debug status).
+     * Escribe un mensaje en consola con la estructura: [Debug]    msg.
+     * @param msg
      */
-    public void writeIgnore(Object msg) {
-        System.out.println("[Debug] " + msg + " (ignored debug status)");
+    public void entry(Object msg) {
+    	consoleLog("[Debug]    " + msg);
     }
-
+    
     /**
-     * Writes a message in console with the structure: msg (ignored debug status).
+     * Escribe un mensaje en consola con la estructura: [Error]    msg.
+     * @param msg
      */
-    public void writeIgnoreAnon(Object msg) {
-        System.out.println(msg);
+    public void entryError(Object msg) {
+    	consoleError("[Error]    " + msg);
     }
 
     private void consoleLog(Object msg) {
@@ -54,6 +56,7 @@ public class Debug {
     public static Debug getDebug() {
         if (debug == null) {
             debug = new Debug();
+            
         }
         return debug;
     }
