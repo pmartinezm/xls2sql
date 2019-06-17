@@ -27,6 +27,7 @@ import controller.comandos.ComandoInsertarDias;
 import controller.comandos.ComandoInsertarHoras;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
+import controller.reflexion.CargadorComandos;
 import modelo.application.Messages;
 import util.Debug;
 
@@ -111,7 +112,7 @@ public class UIController extends UI {
 	/**
 	 * Crea los filtros de la lista de filtros
 	 */
-	private void createFilterCommands() {
+	private void createFilterCommands2() {
 		this.commands = new ArrayList<>();
 
 		this.commands.add(new ComandoCrearTablaCurso());
@@ -122,6 +123,10 @@ public class UIController extends UI {
 		this.commands.add(new ComandoInsertarHoras());
 		this.commands.add(new ComandoExtraerHorarios());
 		this.commands.add(new ComandoExtraerCursos());
+	}
+	
+	private void createFilterCommands() {
+		this.commands = new CargadorComandos("controller.comandos").getFilters();
 	}
 
 	/**
