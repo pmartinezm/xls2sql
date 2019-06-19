@@ -23,8 +23,8 @@ import controller.comandos.ComandoCrearTablaHorario;
 import controller.comandos.ComandoExtraerCursos;
 import controller.comandos.ComandoExtraerHorarios;
 import controller.comandos.ComandoFiltro;
-import controller.comandos.ComandoInsertarDias;
 import controller.comandos.ComandoInsertarHoras;
+import controller.comandos.ComandoInsertarDias;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
 import controller.reflexion.CargadorComandos;
@@ -119,8 +119,8 @@ public class UIController extends UI {
 		this.commands.add(new ComandoCrearTablaHorario());
 		this.commands.add(new ComandoCrearTablaDia());
 		this.commands.add(new ComandoCrearTablaHora());
-		this.commands.add(new ComandoInsertarDias());
 		this.commands.add(new ComandoInsertarHoras());
+		this.commands.add(new ComandoInsertarDias());
 		this.commands.add(new ComandoExtraerHorarios());
 		this.commands.add(new ComandoExtraerCursos());
 	}
