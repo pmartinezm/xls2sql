@@ -21,7 +21,6 @@ import controller.comandos.ComandoFiltro;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
 import controller.reflexion.CargadorComandos;
-import modelo.application.Messages;
 import util.Debug;
 
 public class UIController extends UI {
@@ -96,7 +95,7 @@ public class UIController extends UI {
 			}
 			this.setFileInfo(info.toString());
 		} else {
-			this.setFileInfo(Messages.InvalidFile.toString());
+			this.setFileInfo("El fichero no se puede leer.");
 			this.listFilters.setEnabled(false);
 			this.btnScan.setEnabled(false);
 		}
