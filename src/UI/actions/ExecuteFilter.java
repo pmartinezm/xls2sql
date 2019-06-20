@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JList;
 
 import UI.controller.UIController;
-import controller.comandos.ComandoFiltro;
+import controller.interfaces.IComandoFiltro;
 
 /**
  * Ejecuta el filtro seleccionado
@@ -23,7 +23,7 @@ public class ExecuteFilter implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JList listFilter = this.controller.getListFilter();
-		ComandoFiltro selectedValue = (ComandoFiltro) listFilter.getSelectedValue();
+		IComandoFiltro selectedValue = (IComandoFiltro) listFilter.getSelectedValue();
 		
 		String content = selectedValue.ejecutar(this.controller.getFiltro());
 		this.controller.setTxtResults(content);

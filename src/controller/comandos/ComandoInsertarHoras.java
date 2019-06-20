@@ -2,8 +2,7 @@ package controller.comandos;
 
 import java.util.ArrayList;
 
-import controller.filtros.Filtros;
-import modelo.horario.Horario;
+import controller.interfaces.IFiltros;
 import util.SQL.GeneradorSQL;
 
 public class ComandoInsertarHoras extends ComandoFiltro {
@@ -14,7 +13,7 @@ public class ComandoInsertarHoras extends ComandoFiltro {
 	}
 
 	@Override
-	public String ejecutar(Filtros filtro) {
+	public String ejecutar(IFiltros filtro) {
 		ArrayList<String> horas = new ArrayList<>();
 
 		horas.add("8:10 - 9:05");

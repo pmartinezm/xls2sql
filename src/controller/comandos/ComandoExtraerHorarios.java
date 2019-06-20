@@ -2,7 +2,7 @@ package controller.comandos;
 
 import java.util.ArrayList;
 
-import controller.filtros.Filtros;
+import controller.interfaces.IFiltros;
 import modelo.horario.Horario;
 import util.SQL.GeneradorSQL;
 
@@ -14,7 +14,7 @@ public class ComandoExtraerHorarios extends ComandoFiltro {
 	}
 
 	@Override
-	public String ejecutar(Filtros filtro) {
+	public String ejecutar(IFiltros filtro) {
 		ArrayList<Horario> extraerHorarios = filtro.extraerHorarios();
 		StringBuilder out = new StringBuilder();
 		

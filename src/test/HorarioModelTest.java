@@ -39,7 +39,7 @@ public class HorarioModelTest {
 		Horario horario = new Horario("Test");
 		horario.addDia(dia);
 		
-		horario.mostrar();
+		//horario.mostrar();
 		
 	}
 }

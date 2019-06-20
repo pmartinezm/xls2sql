@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 import UI.controller.UIController;
 import controller.comandos.ComandoFiltro;

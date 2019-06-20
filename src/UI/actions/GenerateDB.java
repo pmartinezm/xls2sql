@@ -6,9 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.ListModel;
 
 import UI.controller.UIController;
-import controller.comandos.ComandoFiltro;
 import controller.database.DBController;
-import controller.filtros.Filtros;
+import controller.interfaces.IComandoFiltro;
 
 /**
  * Ejecuta las acciones de la lista de acciones (script) y genera la base de datos
@@ -25,15 +24,12 @@ public class GenerateDB implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		ListModel model = this.controller.getListActions().getModel();
-		Filtros filtro = this.controller.getFiltro();
 		DBController dbc = new DBController(this.controller.getOutputDBPath());
 		
 		for(int i = 0; i < model.getSize(); i++) {
-			ComandoFiltro filter = (ComandoFiltro) model.getElementAt(i);
-			String query = filter.ejecutar(filtro);
+			IComandoFiltro filter = (IComandoFiltro) model.getElementAt(i);
+			String query = filter.ejecutar(this.controller.getFiltro());
 			dbc.sendQuery(query);
 		}
 	}
-	
-	
 }

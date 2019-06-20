@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import UI.actions.AddAction;
@@ -16,15 +17,7 @@ import UI.actions.SelectAction;
 import UI.actions.SelectFilter;
 import UI.actions.SelectOutput;
 import UI.view.UI;
-import controller.comandos.ComandoCrearTablaCurso;
-import controller.comandos.ComandoCrearTablaDia;
-import controller.comandos.ComandoCrearTablaHora;
-import controller.comandos.ComandoCrearTablaHorario;
-import controller.comandos.ComandoExtraerCursos;
-import controller.comandos.ComandoExtraerHorarios;
 import controller.comandos.ComandoFiltro;
-import controller.comandos.ComandoInsertarHoras;
-import controller.comandos.ComandoInsertarDias;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
 import controller.reflexion.CargadorComandos;
@@ -112,19 +105,6 @@ public class UIController extends UI {
 	/**
 	 * Crea los filtros de la lista de filtros
 	 */
-	private void createFilterCommands2() {
-		this.commands = new ArrayList<>();
-
-		this.commands.add(new ComandoCrearTablaCurso());
-		this.commands.add(new ComandoCrearTablaHorario());
-		this.commands.add(new ComandoCrearTablaDia());
-		this.commands.add(new ComandoCrearTablaHora());
-		this.commands.add(new ComandoInsertarHoras());
-		this.commands.add(new ComandoInsertarDias());
-		this.commands.add(new ComandoExtraerHorarios());
-		this.commands.add(new ComandoExtraerCursos());
-	}
-	
 	private void createFilterCommands() {
 		this.commands = new CargadorComandos("controller.comandos").getFilters();
 	}

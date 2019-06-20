@@ -1,7 +1,5 @@
 package controller.interfaces;
 
-import controller.filtros.Filtros;
-
 public interface IComandoFiltro {
-	public String ejecutar(Filtros filtro);
+	public String ejecutar(IFiltros filtro);
 }

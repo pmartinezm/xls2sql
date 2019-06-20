@@ -7,7 +7,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import UI.controller.UIController;
 
-public class main {
+public class Xls2sql {
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

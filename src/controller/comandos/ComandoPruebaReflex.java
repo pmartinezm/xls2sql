@@ -1,6 +1,6 @@
 package controller.comandos;
 
-import controller.filtros.Filtros;
+import controller.interfaces.IFiltros;
 
 public class ComandoPruebaReflex extends ComandoFiltro{
 	
@@ -10,7 +10,7 @@ public class ComandoPruebaReflex extends ComandoFiltro{
 	}
 
 	@Override
-	public String ejecutar(Filtros filtro) {
+	public String ejecutar(IFiltros filtro) {
 		System.out.println("Funciona bien");
 		return "Funciona bien";
 	}

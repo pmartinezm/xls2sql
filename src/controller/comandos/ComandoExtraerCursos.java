@@ -2,7 +2,7 @@ package controller.comandos;
 
 import java.util.ArrayList;
 
-import controller.filtros.Filtros;
+import controller.interfaces.IFiltros;
 import util.SQL.GeneradorSQL;
 
 public class ComandoExtraerCursos extends ComandoFiltro {
@@ -13,7 +13,7 @@ public class ComandoExtraerCursos extends ComandoFiltro {
 	}
 
 	@Override
-	public String ejecutar(Filtros filtro) {
+	public String ejecutar(IFiltros filtro) {
 		ArrayList<String> cursos = filtro.extraerCursos();
 		StringBuilder out = new StringBuilder();
 

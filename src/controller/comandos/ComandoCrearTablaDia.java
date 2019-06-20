@@ -1,6 +1,6 @@
 package controller.comandos;
 
-import controller.filtros.Filtros;
+import controller.interfaces.IFiltros;
 import util.SQL.GeneradorSQL;
 
 public class ComandoCrearTablaDia extends ComandoFiltro {
@@ -11,7 +11,7 @@ public class ComandoCrearTablaDia extends ComandoFiltro {
 	}
 
 	@Override
-	public String ejecutar(Filtros filtro) {
+	public String ejecutar(IFiltros filtro) {
 		return GeneradorSQL.crearTablaDia();
 	}
 }
