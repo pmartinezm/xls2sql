@@ -10,4 +10,5 @@ public interface IFiltros {
 	public ArrayList<String> extraerCursos();
 	public ArrayList<Horario> extraerHorarios();
 	public Object creandoUnFiltro();
+	public ArrayList<String> extraerTutores();
 }

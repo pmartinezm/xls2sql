@@ -129,6 +129,25 @@ public class Filtros implements IFiltros {
 	public Object creandoUnFiltro() {
 		return null;
 	}
+	
+	@Override
+	public ArrayList<String> extraerTutores() {
+		ArrayList<String> tutores = new ArrayList<>();
+		for(int i = 0; i < this.wb.getNumberOfSheets(); i++) {
+			XSSFSheet sheet = this.wb.getSheetAt(i);
+			Buscador b = new Buscador(sheet);
+			Coordenada res = b.empiezaPor("tuto", 20);
+			
+			if(res != null) {
+				String valor = sheet.getRow(res.r).getCell(res.c).toString();
+				int fin = valor.indexOf("         ");
+				int inicio = valor.indexOf(" : ");
+				tutores.add(valor.substring(inicio + 3, fin));
+			}
+		}
+		
+		return tutores;
+	}
 }
 
 

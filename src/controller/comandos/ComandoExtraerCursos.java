@@ -15,10 +15,11 @@ public class ComandoExtraerCursos extends ComandoFiltro {
 	@Override
 	public String ejecutar(IFiltros filtro) {
 		ArrayList<String> cursos = filtro.extraerCursos();
+		ArrayList<String> tutores = filtro.extraerTutores();
 		StringBuilder out = new StringBuilder();
 
 		out.append(GeneradorSQL.comentar("Extracción de cursos"));
-		out.append(GeneradorSQL.insertarCurso(cursos));
+		out.append(GeneradorSQL.insertarCurso(cursos, tutores));
 
 		return out.toString();
 	}

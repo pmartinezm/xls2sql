@@ -91,26 +91,29 @@ public class GeneradorSQL {
 		return sql.toString();
 	}
 
-	public static String insertarCurso(String nombre) {
+	public static String insertarCurso(String nombre, String tutor) {
 		StringBuilder sql = new StringBuilder();
 
 		sql.append("insert into curso (");
-		sql.append("nombre) values ('");
+		sql.append("nombre, tutor) values ('");
 		sql.append(nombre);
+		sql.append("', '");
+		sql.append(tutor);
 		sql.append("');");
 
 		return sql.toString();
 	}
 
-	public static String insertarCurso(ArrayList<String> nombres) {
+	public static String insertarCurso(ArrayList<String> nombres, ArrayList<String> tutores) {
 		StringBuilder sql = new StringBuilder();
 
 		sql.append("insert into curso (");
-		sql.append("nombre) values ");
+		sql.append("nombre, tutor) values ");
 
 		for (int i = 0; i < nombres.size(); i++) {
-			String nombre = nombres.get(i);
-			sql.append("('" + nombre + "')");
+			String curso = nombres.get(i);
+			String tutor = tutores.get(i);
+			sql.append("('" + curso + "', '" + tutor + "')");
 
 			if (i < nombres.size() - 1) {
 				sql.append(", ");
@@ -126,7 +129,8 @@ public class GeneradorSQL {
 		sql.append("create table if not exists curso (");
 
 		sql.append("id integer primary key autoincrement not null, ");
-		sql.append("nombre varchar not null default 'sin asignar'");
+		sql.append("nombre varchar,");
+		sql.append("tutor varchar");
 
 		sql.append(")");
 

@@ -45,4 +45,26 @@ public class Buscador {
 		this.debug.entryError("No se ha encontrado '" + texto + "'");
 		return null;
 	}
+	
+	public Coordenada empiezaPor(String texto, int rango) {
+		this.debug.title("Buscando '" + texto + "' dentro del rango " + rango);
+		for (int c = 0; c < rango; c++) {
+			for (int r = 0; r < rango; r++) {
+				Row fila = this.sheet.getRow(r);
+				if (fila != null) {
+					Cell celda = fila.getCell(c);
+					if (celda != null) {
+						String valor = celda.toString();
+
+						if (valor.toLowerCase().startsWith(texto.toLowerCase())) {
+							this.debug.entry("Encontrado en " + r + "-" + c);
+							return new Coordenada(r, c);
+						}
+					}
+				}
+			}
+		}
+		this.debug.entryError("No se ha encontrado '" + texto + "'");
+		return null;
+	}
 }
