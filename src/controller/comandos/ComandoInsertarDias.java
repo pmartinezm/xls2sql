@@ -14,6 +14,7 @@ public class ComandoInsertarDias extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		ArrayList<String> dias = new ArrayList<>();
 		
 		dias.add("Lunes");

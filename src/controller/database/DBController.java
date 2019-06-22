@@ -53,6 +53,7 @@ public class DBController {
 			getConnection();
 			Statement s = this.connection.createStatement();
 			s.execute(query);
+			this.d.write("Query enviada.");
 		} catch (SQLException e) {
 			this.d.error("Error de SQL.");
 			e.printStackTrace();

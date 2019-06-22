@@ -12,6 +12,7 @@ public class ComandoCreandoUnFiltro extends ComandoFiltro {
 	
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		filtro.creandoUnFiltro();
 		return GeneradorSQL.comentar("Creando un filtro");
 	}

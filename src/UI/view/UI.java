@@ -43,7 +43,6 @@ public class UI extends JFrame {
 	private JLabel lblScript;
 
 	public UI() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Pablo\\git\\xls2sql\\assets\\xls2sql-logo.png"));
 		setTitle("xls2sql");
 		this.fileDialog = new FileDialog(this, "Select file or directory...");
 		

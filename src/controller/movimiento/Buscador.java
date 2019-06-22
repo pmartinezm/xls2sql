@@ -9,7 +9,7 @@ import util.Debug;
 
 public class Buscador {
 	private XSSFSheet sheet;
-	private Debug debug = Debug.getDebug();
+	private Debug d = Debug.getDebug();
 
 	public Buscador(XSSFSheet sheet) {
 		this.sheet = sheet;
@@ -25,7 +25,7 @@ public class Buscador {
 	 * @return las coordenadas de la coincidencia, null si no se ha encontrado.
 	 */
 	public Coordenada buscar(String texto, int rango) {
-		this.debug.title("Buscando '" + texto + "' dentro del rango " + rango);
+		this.d.title("Buscando '" + texto + "' dentro del rango " + rango);
 		for (int c = 0; c < rango; c++) {
 			for (int r = 0; r < rango; r++) {
 				Row fila = this.sheet.getRow(r);
@@ -35,19 +35,19 @@ public class Buscador {
 						String valor = celda.toString();
 
 						if (valor.equalsIgnoreCase(texto)) {
-							this.debug.entry("Encontrado en " + r + "-" + c);
+							this.d.entry("Encontrado en " + r + "-" + c);
 							return new Coordenada(r, c);
 						}
 					}
 				}
 			}
 		}
-		this.debug.entryError("No se ha encontrado '" + texto + "'");
+		this.d.entryError("No se ha encontrado '" + texto + "'");
 		return null;
 	}
 	
 	public Coordenada empiezaPor(String texto, int rango) {
-		this.debug.title("Buscando '" + texto + "' dentro del rango " + rango);
+		this.d.title("Buscando '" + texto + "' dentro del rango " + rango);
 		for (int c = 0; c < rango; c++) {
 			for (int r = 0; r < rango; r++) {
 				Row fila = this.sheet.getRow(r);
@@ -57,14 +57,14 @@ public class Buscador {
 						String valor = celda.toString();
 
 						if (valor.toLowerCase().startsWith(texto.toLowerCase())) {
-							this.debug.entry("Encontrado en " + r + "-" + c);
+							this.d.entry("Encontrado en " + r + "-" + c);
 							return new Coordenada(r, c);
 						}
 					}
 				}
 			}
 		}
-		this.debug.entryError("No se ha encontrado '" + texto + "'");
+		this.d.entryError("No se ha encontrado '" + texto + "'");
 		return null;
 	}
 }

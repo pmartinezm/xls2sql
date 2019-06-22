@@ -2,8 +2,8 @@ package controller.comandos;
 
 import controller.interfaces.IFiltros;
 
-public class ComandoPruebaReflex extends ComandoFiltro{
-	
+public class ComandoPruebaReflex extends ComandoFiltro {
+
 	public ComandoPruebaReflex() {
 		super();
 		this.nombre = "Comando de prueba apra la reflexión";
@@ -11,8 +11,8 @@ public class ComandoPruebaReflex extends ComandoFiltro{
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
-		System.out.println("Funciona bien");
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		return "Funciona bien";
 	}
-	
+
 }

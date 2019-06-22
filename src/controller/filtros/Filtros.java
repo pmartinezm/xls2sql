@@ -29,6 +29,7 @@ public class Filtros implements IFiltros {
 
 	@Override
 	public int contarHorarios() {
+		this.d.write("Contar horarios");
 		int sheets = this.wb.getNumberOfSheets();
 		int counter = 0;
 
@@ -49,6 +50,7 @@ public class Filtros implements IFiltros {
 
 	@Override
 	public int contarCursos() {
+		this.d.write("Contar cursos");
 		int sheets = this.wb.getNumberOfSheets();
 		int counter = 0;
 
@@ -67,6 +69,7 @@ public class Filtros implements IFiltros {
 
 	@Override
 	public ArrayList<String> extraerCursos() {
+		this.d.write("Extraer cursos");
 		int sheets = this.wb.getNumberOfSheets();
 		ArrayList<String> cursos = new ArrayList<>();
 
@@ -90,6 +93,7 @@ public class Filtros implements IFiltros {
 
 	@Override
 	public ArrayList<Horario> extraerHorarios() {
+		this.d.write("Extraer horarios");
 		final int DIAS = 5;
 		final int HORAS = 6;
 		int sheets = this.wb.getNumberOfSheets();
@@ -127,11 +131,13 @@ public class Filtros implements IFiltros {
 
 	@Override
 	public Object creandoUnFiltro() {
+		this.d.write("Creando un filtro");
 		return null;
 	}
 	
 	@Override
 	public ArrayList<String> extraerTutores() {
+		this.d.write("Extraer tutores");
 		ArrayList<String> tutores = new ArrayList<>();
 		for(int i = 0; i < this.wb.getNumberOfSheets(); i++) {
 			XSSFSheet sheet = this.wb.getSheetAt(i);

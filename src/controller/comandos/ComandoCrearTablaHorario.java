@@ -12,6 +12,7 @@ public class ComandoCrearTablaHorario extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		return GeneradorSQL.crearTablaHorario();
 	}
 }

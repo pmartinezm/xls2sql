@@ -13,12 +13,12 @@ public class GestorArchivoXLS {
 	private String path;
 	private ArrayList<File> archivos = new ArrayList<>();
 	private String[] extensiones = { "xls", "xlsx" };
-	private Debug debug = Debug.getDebug();
+	private Debug d = Debug.getDebug();
 
 	public GestorArchivoXLS(String path) {
 		this.path = path;
 		this.generarArchivos();
-		this.debug.write("Archivos: " + this.archivos.size());
+		this.d.write("Archivos: " + this.archivos.size());
 	}
 
 	public GestorArchivoXLS() {
@@ -33,20 +33,20 @@ public class GestorArchivoXLS {
 
 		if (file.exists()) {
 			if (file.isDirectory()) {
-				this.debug.write("Directorio reconocido.");
+				this.d.write("Directorio reconocido.");
 				File[] archivos = file.listFiles();
 				for (File archivo : archivos) {
 					if (!(archivo.isDirectory()) && this.filtrarExtension(archivo.getName())) {
 						this.archivos.add(archivo);
-						this.debug.write("Nombre del archivo: " + archivo.getName());
+						this.d.write("Nombre del archivo: " + archivo.getName());
 					}
 				}
 			} else {
-				this.debug.write("Archivo reconocido.");
+				this.d.write("Archivo reconocido.");
 				this.archivos.add(file);
 			}
 		} else {
-			this.debug.error("Ruta no encontrada.");
+			this.d.error("Ruta no encontrada.");
 		}
 	}
 

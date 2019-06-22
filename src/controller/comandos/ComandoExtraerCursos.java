@@ -14,6 +14,7 @@ public class ComandoExtraerCursos extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		ArrayList<String> cursos = filtro.extraerCursos();
 		ArrayList<String> tutores = filtro.extraerTutores();
 		StringBuilder out = new StringBuilder();

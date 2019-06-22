@@ -15,6 +15,7 @@ public class ComandoExtraerHorarios extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		ArrayList<Horario> extraerHorarios = filtro.extraerHorarios();
 		StringBuilder out = new StringBuilder();
 		

@@ -38,14 +38,13 @@ public class UIController extends UI {
 
 	private String filePath;
 	private String outputPath;
-	private Debug debug;
+	private Debug d;
 	private XSSFWorkbook wb;
 	private Filtros filtro;
 	private ArrayList<IComandoFiltro> commands;
 
 	public UIController() {
-		this.debug = Debug.getDebug();
-		this.debug.disable();
+		this.d = Debug.getDebug();
 
 		this.addListeners();
 		this.createFilterCommands();

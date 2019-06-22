@@ -14,6 +14,7 @@ public class ComandoInsertarHoras extends ComandoFiltro {
 
 	@Override
 	public String ejecutar(IFiltros filtro) {
+		d.write("Ejecutando comando " + getClass().getSimpleName() + ".");
 		ArrayList<String> horas = new ArrayList<>();
 
 		horas.add("8:10 - 9:05");
