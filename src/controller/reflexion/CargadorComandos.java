@@ -3,7 +3,7 @@ package controller.reflexion;
 import java.io.File;
 import java.util.ArrayList;
 
-import controller.comandos.ComandoFiltro;
+import controller.interfaces.IComandoFiltro;
 import util.StringUtils;
 
 /**
@@ -44,9 +44,9 @@ public class CargadorComandos {
 	 * 
 	 * @return la lista de los filtros.
 	 */
-	public ArrayList<ComandoFiltro> getFilters() {
+	public ArrayList<IComandoFiltro> getFilters() {
 		File dir = new File(this.absolutePath + "/src/" + this.packagePath.replace(".", "/"));
-		ArrayList<ComandoFiltro> comandos = new ArrayList<>();
+		ArrayList<IComandoFiltro> comandos = new ArrayList<>();
 
 		if (dir.exists() && dir.isDirectory()) {
 			File[] files = dir.listFiles();
@@ -58,8 +58,8 @@ public class CargadorComandos {
 					Class<?> c = Class.forName(this.packagePath + "." + fileName);
 
 					if (c.getModifiers() != 1025) { // Valor del modificador abstract
-						ComandoFiltro ins = (ComandoFiltro) c.newInstance();
-						comandos.add((ComandoFiltro) ins);
+						IComandoFiltro ins = (IComandoFiltro) c.newInstance();
+						comandos.add((IComandoFiltro) ins);
 					}
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 					System.err.println("Error: " + file.getName());

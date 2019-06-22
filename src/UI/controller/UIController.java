@@ -17,9 +17,9 @@ import UI.actions.SelectAction;
 import UI.actions.SelectFilter;
 import UI.actions.SelectOutput;
 import UI.view.UI;
-import controller.comandos.ComandoFiltro;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
+import controller.interfaces.IComandoFiltro;
 import controller.reflexion.CargadorComandos;
 import util.Debug;
 
@@ -31,7 +31,7 @@ public class UIController extends UI {
 	private Debug debug;
 	private XSSFWorkbook wb;
 	private Filtros filtro;
-	private ArrayList<ComandoFiltro> commands;
+	private ArrayList<IComandoFiltro> commands;
 
 	public UIController() {
 		this.debug = Debug.getDebug();
@@ -112,9 +112,9 @@ public class UIController extends UI {
 	 * Añade los filtros a la lista de filtros
 	 */
 	private void populateFilterList() {
-		DefaultListModel<ComandoFiltro> listModel = new DefaultListModel<>();
+		DefaultListModel<IComandoFiltro> listModel = new DefaultListModel<>();
 
-		for (ComandoFiltro command : this.commands) {
+		for (IComandoFiltro command : this.commands) {
 			listModel.addElement(command);
 		}
 

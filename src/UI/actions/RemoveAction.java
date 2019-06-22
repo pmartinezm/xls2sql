@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 
 import UI.controller.UIController;
-import controller.comandos.ComandoFiltro;
+import controller.interfaces.IComandoFiltro;
 
 /**
  * Elimina una acción de la lista de acciones (script)
@@ -26,7 +26,7 @@ public class RemoveAction implements ActionListener {
 		int selectedIndex = this.controller.getListActions().getSelectedIndex();
 		
 		if(selectedIndex != -1) {
-			DefaultListModel<ComandoFiltro> model = (DefaultListModel<ComandoFiltro>) this.controller.getListActions()
+			DefaultListModel<IComandoFiltro> model = (DefaultListModel<IComandoFiltro>) this.controller.getListActions()
 					.getModel();
 			model.remove(selectedIndex);
 		}

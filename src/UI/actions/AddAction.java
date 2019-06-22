@@ -7,7 +7,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
 import UI.controller.UIController;
-import controller.comandos.ComandoFiltro;
+import controller.interfaces.IComandoFiltro;
 
 /**
  * Añadir una acción a la lista de acciones (script)
@@ -23,11 +23,11 @@ public class AddAction implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		ComandoFiltro selectedFilter = (ComandoFiltro) this.controller.getListFilter().getSelectedValue();
+		IComandoFiltro selectedFilter = (IComandoFiltro) this.controller.getListFilter().getSelectedValue();
 		if (selectedFilter != null) {
-			ListModel<ComandoFiltro> oldModel = this.controller.getListActions().getModel();
+			ListModel<IComandoFiltro> oldModel = this.controller.getListActions().getModel();
 			
-			DefaultListModel<ComandoFiltro> model = new DefaultListModel<>();
+			DefaultListModel<IComandoFiltro> model = new DefaultListModel<>();
 			for(int i = 0; i < oldModel.getSize(); i++) {
 				model.addElement(oldModel.getElementAt(i));
 			}
