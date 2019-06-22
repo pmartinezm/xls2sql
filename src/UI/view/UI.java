@@ -15,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.Toolkit;
 
 public class UI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -42,6 +43,7 @@ public class UI extends JFrame {
 	private JLabel lblScript;
 
 	public UI() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Pablo\\git\\xls2sql\\assets\\xls2sql-logo.png"));
 		setTitle("xls2sql");
 		this.fileDialog = new FileDialog(this, "Select file or directory...");
 		
@@ -66,6 +68,7 @@ public class UI extends JFrame {
 		contentPane.add(lblSelectAFile, gbc_lblSelectAFile);
 		
 		btnChooseFile = new JButton("Seleccionar archivo");
+		btnChooseFile.setToolTipText("Seleccionar un archivo para extraer la informaci\u00F3n.");
 		
 		GridBagConstraints gbc_btnChooseFile = new GridBagConstraints();
 		gbc_btnChooseFile.fill = GridBagConstraints.HORIZONTAL;
@@ -99,6 +102,7 @@ public class UI extends JFrame {
 		contentPane.add(lblRutaDeSalida, gbc_lblRutaDeSalida);
 		
 		btnSeleccionarSalida = new JButton("Seleccionar salida");
+		btnSeleccionarSalida.setToolTipText("Seleccionar una ruta de salida para la base de datos.");
 		GridBagConstraints gbc_btnSeleccionarSalida = new GridBagConstraints();
 		gbc_btnSeleccionarSalida.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnSeleccionarSalida.insets = new Insets(0, 0, 5, 5);
@@ -133,6 +137,7 @@ public class UI extends JFrame {
 		contentPane.add(lblScript, gbc_lblScript);
 		
 		btnScan = new JButton("Generar SQL");
+		btnScan.setToolTipText("Muestra la sentencia SQL en el panel de texto inferior.");
 		GridBagConstraints gbc_btnScan = new GridBagConstraints();
 		gbc_btnScan.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnScan.anchor = GridBagConstraints.NORTH;
@@ -170,6 +175,7 @@ public class UI extends JFrame {
 		listFilters.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
 		btnAddAction = new JButton("A\u00F1adir acci\u00F3n");
+		btnAddAction.setToolTipText("A\u00F1ade la acci\u00F3n seleccionada de la lista de filtros a la lista de acciones.");
 		GridBagConstraints gbc_btnAadirAccin = new GridBagConstraints();
 		gbc_btnAadirAccin.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnAadirAccin.anchor = GridBagConstraints.NORTH;
@@ -179,6 +185,7 @@ public class UI extends JFrame {
 		contentPane.add(btnAddAction, gbc_btnAadirAccin);
 		
 		btnRemoveAction = new JButton("Quitar acci\u00F3n");
+		btnRemoveAction.setToolTipText("Elimina la acci\u00F3n seleccionada de la lista de acciones.");
 		GridBagConstraints gbc_btnQuitarAccin = new GridBagConstraints();
 		gbc_btnQuitarAccin.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnQuitarAccin.insets = new Insets(0, 0, 5, 5);
@@ -187,6 +194,7 @@ public class UI extends JFrame {
 		contentPane.add(btnRemoveAction, gbc_btnQuitarAccin);
 		
 		btnGenerate = new JButton("Generar DB");
+		btnGenerate.setToolTipText("Ejecuta las acciones de la lista de acciones en orden y genera la base de datos.");
 		GridBagConstraints gbc_btnGenerarDb = new GridBagConstraints();
 		gbc_btnGenerarDb.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnGenerarDb.anchor = GridBagConstraints.NORTH;

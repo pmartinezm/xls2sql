@@ -1,9 +1,13 @@
 package controller.reflexion;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 
+import org.apache.log4j.lf5.util.Resource;
+
 import controller.interfaces.IComandoFiltro;
+import util.Debug;
 import util.StringUtils;
 
 /**
@@ -15,6 +19,7 @@ import util.StringUtils;
 public class CargadorComandos {
 	private String absolutePath;
 	private String packagePath;
+	private Debug d;
 
 	/**
 	 * Constructor.
@@ -23,6 +28,9 @@ public class CargadorComandos {
 	 *            path del paquete separado por puntos (desde src)
 	 */
 	public CargadorComandos(String packagePath) {
+		this.d = Debug.getDebug();
+		this.d.enable();
+		this.d.title("Cargador comandos");
 		this.absolutePath = getProjectPath();
 		this.packagePath = packagePath;
 	}
@@ -33,8 +41,13 @@ public class CargadorComandos {
 	 * @return
 	 */
 	private String getProjectPath() {
+		this.d.title("getObjectPath");
 		File f = new File(".");
 		String path = f.getAbsolutePath();
+
+		this.d.entry("Path: " + path);
+		this.d.entry("Corrected path: " + path.substring(0, path.length() - 2));
+		this.d.title("");
 
 		return path.substring(0, path.length() - 2);
 	}
@@ -57,6 +70,8 @@ public class CargadorComandos {
 				try {
 					Class<?> c = Class.forName(this.packagePath + "." + fileName);
 
+					this.d.entry("Class: " + c.getName());
+
 					if (c.getModifiers() != 1025) { // Valor del modificador abstract
 						IComandoFiltro ins = (IComandoFiltro) c.newInstance();
 						comandos.add((IComandoFiltro) ins);
@@ -66,6 +81,7 @@ public class CargadorComandos {
 				}
 			}
 		}
+		this.d.title("");
 		return comandos;
 	}
 }

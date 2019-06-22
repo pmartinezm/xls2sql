@@ -17,6 +17,16 @@ import UI.actions.SelectAction;
 import UI.actions.SelectFilter;
 import UI.actions.SelectOutput;
 import UI.view.UI;
+import controller.comandos.ComandoCreandoUnFiltro;
+import controller.comandos.ComandoCrearTablaCurso;
+import controller.comandos.ComandoCrearTablaDia;
+import controller.comandos.ComandoCrearTablaHora;
+import controller.comandos.ComandoCrearTablaHorario;
+import controller.comandos.ComandoExtraerCursos;
+import controller.comandos.ComandoExtraerHorarios;
+import controller.comandos.ComandoInsertarDias;
+import controller.comandos.ComandoInsertarHoras;
+import controller.comandos.ComandoPruebaReflex;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
 import controller.interfaces.IComandoFiltro;
@@ -105,7 +115,17 @@ public class UIController extends UI {
 	 * Crea los filtros de la lista de filtros
 	 */
 	private void createFilterCommands() {
-		this.commands = new CargadorComandos("controller.comandos").getFilters();
+		this.commands = new ArrayList<>();
+		this.commands.add(new ComandoCreandoUnFiltro());
+		this.commands.add(new ComandoCrearTablaCurso());
+		this.commands.add(new ComandoCrearTablaDia());
+		this.commands.add(new ComandoCrearTablaHora());
+		this.commands.add(new ComandoCrearTablaHorario());
+		this.commands.add(new ComandoExtraerCursos());
+		this.commands.add(new ComandoExtraerHorarios());
+		this.commands.add(new ComandoInsertarDias());
+		this.commands.add(new ComandoInsertarHoras());
+		this.commands.add(new ComandoPruebaReflex());
 	}
 
 	/**
