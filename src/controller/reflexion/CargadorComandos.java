@@ -1,6 +1,7 @@
 package controller.reflexion;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -83,5 +84,25 @@ public class CargadorComandos {
 		}
 		this.d.title("");
 		return comandos;
+	}
+
+	public static void main(String[] args) throws URISyntaxException {
+		try {
+			Class<?> c = Class.forName("Xls2sql");
+			System.out.println("Classname: " + c.getName());
+
+			URL resource = c.getResource("controller/comandos");
+
+			File f = new File(resource.getPath());
+			if (f.exists()) {
+				System.out.println("ok");
+				System.out.println(f.getPath());
+			} else {
+				System.out.println("error");
+			}
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
