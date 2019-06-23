@@ -9,6 +9,6 @@ public interface IFiltros {
 	public int contarCursos();
 	public ArrayList<String> extraerCursos();
 	public ArrayList<Horario> extraerHorarios();
-	public Object creandoUnFiltro();
+	public String creandoUnFiltro();
 	public ArrayList<String> extraerTutores();
 }

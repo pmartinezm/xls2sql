@@ -30,7 +30,7 @@ import controller.comandos.ComandoPruebaReflex;
 import controller.filtros.Filtros;
 import controller.gestor.GestorArchivoXLS;
 import controller.interfaces.IComandoFiltro;
-import controller.reflexion.CargadorComandos;
+import controller.interfaces.IFiltros;
 import util.Debug;
 
 public class UIController extends UI {
@@ -40,7 +40,7 @@ public class UIController extends UI {
 	private String outputPath;
 	private Debug d;
 	private XSSFWorkbook wb;
-	private Filtros filtro;
+	private IFiltros filtro;
 	private ArrayList<IComandoFiltro> commands;
 
 	public UIController() {
@@ -176,7 +176,7 @@ public class UIController extends UI {
 		return this.wb;
 	}
 
-	public Filtros getFiltro() {
+	public IFiltros getFiltro() {
 		return this.filtro;
 	}
 

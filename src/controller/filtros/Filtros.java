@@ -130,9 +130,9 @@ public class Filtros implements IFiltros {
 	}
 
 	@Override
-	public Object creandoUnFiltro() {
+	public String creandoUnFiltro() {
 		this.d.write("Creando un filtro");
-		return null;
+		return "Creando un filtro";
 	}
 	
 	@Override
