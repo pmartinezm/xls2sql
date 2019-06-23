@@ -42,7 +42,7 @@ public class Buscador {
 				}
 			}
 		}
-		this.d.entryError("No se ha encontrado '" + texto + "'");
+		this.d.entryError("No encontrado");
 		return null;
 	}
 	
@@ -64,7 +64,7 @@ public class Buscador {
 				}
 			}
 		}
-		this.d.entryError("No se ha encontrado '" + texto + "'");
+		this.d.entryError("No encontrado");
 		return null;
 	}
 }

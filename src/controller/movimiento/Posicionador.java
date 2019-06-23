@@ -25,7 +25,7 @@ public class Posicionador {
 	 * @return la siguiente fila.
 	 */
 	public int getSiguienteFila(int r, int c) {
-		this.d.title("Obtener siguiente fila (getSiguienteFila)");
+		this.d.title("Obtener siguiente fila");
 		int max = this.sheet.getLastRowNum();
 		this.d.entry("Max: " + max);
 		r++;
@@ -33,21 +33,21 @@ public class Posicionador {
 			this.d.write("R: " + r + ". R <= Max?: " + (r<=max));
 			Row row = this.sheet.getRow(r);
 			if (row == null) {
-				this.d.entry("Fila es null. Incrementando r.");
+				this.d.entry("Fila null. Siguiente fila");
 				r++;
 			} else {
-				this.d.entry("Fila no null. Obteniendo celda.");
+				this.d.entry("Obteniendo celda.");
 				Cell cell = row.getCell(c);
 				if (cell != null) {
-					this.d.entry("Celda no null. Retornando r.");
+					this.d.entry("Retornando fila.");
 					return r;
 				} else {
-					this.d.entry("Celda null. Incrementando r.");
+					this.d.entry("Siguiente fila.");
 					r++;
 				}
 			}
 		}
-		this.d.entry("R <= Max. Retornando -1.");
+		this.d.entry("No hay siguiente fila");
 		return -1;
 	}
 
@@ -71,24 +71,22 @@ public class Posicionador {
 	 * @return posición de la columna.
 	 */
 	public int getSiguienteColumna(int r, int c) {
-		this.d.title("GetSiguienteColumna");
+		this.d.title("Obtener siguiente columna");
 		Row row = this.sheet.getRow(r);
 		int max = row.getLastCellNum();
 		this.d.write("Max: " + max);
 		c++;
 		while (c <= max) {
-			this.d.write("C: " + c + ". C <= Max?: " + (c<=max));
 			Cell cell = row.getCell(c);
 			if (cell == null || cell.toString().length() == 0) {
-				this.d.write("Cell is null or empty. Incrementing C.");
+				this.d.write("Siguiente columna");
 				c++;
 			} else {
-				this.d.write("Cell is not null or empty. Returning C.");
+				this.d.write("Retornando columna");
 				return c;
 			}
 		}
-		this.d.write("C <= Max. Returning -1.");
-		this.d.title("End of GetSiguienteColumna");
+		this.d.write("No hay siguiente columna");
 		return -1;
 	}
 
